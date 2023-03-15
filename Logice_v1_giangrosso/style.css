@@ -262,5 +262,17 @@ header .week-icons span {
   }
   /*End Navigation Bar Style*/
 
+.event {
+    position: relative;
+  }
+  
+  .event:after {
+    content: '•';
+    color: #f78536;
+    font-size: 1.4em;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+  }
 
   
