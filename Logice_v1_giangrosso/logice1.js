@@ -47,10 +47,10 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
         renderCalendar(); // calling renderCalendar function
     });
 
+//This function is being used to provide the user with the ability to click on any day of the month in the calendar and see a view of that day.
 curDayIcon.forEach(icon => { //getting current day icon
     icon.addEventListener("click", () => { //adding click event on current day icon
-        // if clicked, the week of the current day will be displayed below the calendar
-        alert("you did it");
+        alert("you did it"); // Event will need to be added here in order to produce a day view for the user. 
     })
 });
 });
