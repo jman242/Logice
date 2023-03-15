@@ -1,4 +1,3 @@
-
 h1{    
     font: 35;
     color: grey;
@@ -42,14 +41,15 @@ h1{
 }
 /* -END- Menu below Navigation Bar and above Calendar*/
 
+
 div{
   clear: both;
 }
 
+/*Top Navigation bar w/ symbol*/
 .topnav{
     float: right;
 }
-
 .topline{
     width: 100%;
     margin: auto;
@@ -60,6 +60,7 @@ div{
     padding: 5px; 
     background-color: rgb(5, 5, 77);
 }
+/* -END- Top Navigation bar w/ symbol*/
 
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
@@ -87,18 +88,15 @@ body{
   box-shadow: 0 15px 40px rgba(0,0,0,0.12);
   position: relative;
 }
-
 .wrapper header{
   display: flex;
   align-items: center;
   padding: 25px 30px 10px;
   justify-content: space-between;
 }
-
 header .icons{
   display: flex;
 }
-
 header .icons span{
   height: 38px;
   width: 38px;
@@ -111,24 +109,19 @@ header .icons span{
   user-select: none;
   border-radius: 50%;
 }
-
 .icons span:last-child{
   margin-right: -10px;
 }
-
 header .icons span:hover{
   background: #f2f2f2;
 }
-
 header .current-date{
   font-size: 1.45rem;
   font-weight: 500;
 }
-
 .calendar{
   padding: 20px;
 }
-
 .calendar ul{
   display: flex;
   flex-wrap: wrap;
@@ -185,27 +178,60 @@ header .current-date{
 .days li:not(.active):hover::before{
   background: #f2f2f2;
 }
-/*End Calendar Style*/
-
-
-
+/*-END- Calendar Style*/
 
 /*Week View Style*/
 .week-view{
+  margin-top: 10px;
   width: 100%;
   background: #fff;
-  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  position: relative;
+}
+header .week-icons span {
+  height: 38px;
+  width: 38px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
 }
 
-/*End Week View Style*/
 .week-view header{
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  position: relative;
   text-align: center;
 }
-
-.week-view p{
-  display: inline;
+.week .day li{
+  font-weight: 500;
+  cursor: default;
 }
-
+.week-view p{
+  display: inline-block;
+}
+.week .day li{
+  width: 100%;
+  z-index: 1;
+  display: inline;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+ margin-left: 7%;
+}
+.week li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+/* -END- Week View Style*/
 
 
 /*Navigation bar*/
@@ -215,7 +241,6 @@ header .current-date{
     float: right;
     position: right;
   }
-  
   /* Style the links inside the navigation bar */
   .topnav a {
     float: right;
@@ -225,21 +250,17 @@ header .current-date{
     text-decoration: none;
     font-size: 17px;
   }
-  
   /* Change the color of links on hover */
   .topnav a:hover {
     background-color: #ddd;
     color: black;
   }
-  
   /* Add a color to the active/current link */
   .topnav a.active {
     background-color:#89CFF0;
     color: white;
   }
   /*End Navigation Bar Style*/
-
-  /*Resizing the screen width based on user resizing the screen*/
 
 
   
