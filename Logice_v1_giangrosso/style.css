@@ -115,9 +115,14 @@ header .icons span{
 header .icons span:hover{
   background: #f2f2f2;
 }
-header .current-date{
+.current-date{
   font-size: 1.45rem;
   font-weight: 500;
+}
+
+.current-date2{
+  font-size: 1.15rem;
+  font-weight: 300;
 }
 .calendar{
   padding: 20px;
@@ -209,27 +214,35 @@ header .week-icons span {
   position: relative;
   text-align: center;
 }
-.week .day li{
-  font-weight: 500;
-  cursor: default;
-}
 .week-view p{
   display: inline-block;
 }
-.week .day li{
-  width: 100%;
-  z-index: 1;
-  display: inline;
+.day-cell{
+  width: 12.25%;
+  border: 1px solid black;
+  height: 20px;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   text-align: center;
-  cursor: pointer;
-  position: relative;
-  margin-top: 30px;
- margin-left: 7%;
 }
-.week li{
-  color: #333;
-  width: calc(100% / 7);
-  font-size: 1.07rem;
+
+.column span{
+  display: block;
+}
+.hours{
+  width: 12.25%;
+  border: 1px solid black;
+  height: 40px;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+}
+header .week-icons span:hover{
+  background: #f2f2f2;
 }
 /* -END- Week View Style*/
 
@@ -261,18 +274,3 @@ header .week-icons span {
     color: white;
   }
   /*End Navigation Bar Style*/
-
-.event {
-    position: relative;
-  }
-  
-  .event:after {
-    content: '•';
-    color: #f78536;
-    font-size: 1.4em;
-    position: absolute;
-    right: -4px;
-    top: -4px;
-  }
-
-  
