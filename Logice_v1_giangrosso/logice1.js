@@ -38,6 +38,20 @@ const renderCalendar = () => {
 }
 renderCalendar();
 
+const renderTimeblocks = () => {
+    for(let i = 0; i < 7; i++ ) {
+        const currentDay = document.querySelector(`[data-day="${i}"] [data-time-block]`);
+        for(let k = 0; k < 24; k++) {
+            //const currentBlock = `<span class="hours">${k}:00</span>`
+            //currentDay.append(currentBlock);
+            const spanElement = document.createElement("span");
+            spanElement.classList.add("hours");
+            spanElement.innerText = `${k}:00`;
+            currentDay.appendChild(spanElement);
+        }
+    }
+}
+renderTimeblocks();
 
 prevNextIcon.forEach(icon => { //getting prev and next icons
     icon.addEventListener("click", () => { //adding click event on both icons
