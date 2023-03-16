@@ -7,7 +7,6 @@
     <script src="https://kit.fontawesome.com/e9fdb44b0e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <script src="logice1.js" defer></script>
 </head>
 
     <nav class="topline">
@@ -59,43 +58,36 @@
         </header>
         <div class="week-grid">
           <div class="row">
-            <div class="day-cell">CST/GMT-6</div>
-            <div class="day-cell">SUN</div>
-            <div class="day-cell">MON</div>
-            <div class="day-cell">TUE</div>
-            <div class="day-cell">WED</div>
-            <div class="day-cell">THU</div>
-            <div class="day-cell">FRI</div>
-            <div class="day-cell">SAT</div>
+            <div class="day-cell" data-day="0">
+              <p>SUN</p>
+              <div data-time-block></div>
+            </div>
+            <div class="day-cell" data-day="1">
+              <p>MON</p>
+              <div data-time-block></div>
+            </div>
+            <div class="day-cell" data-day="2">
+              <p>TUE</p>
+              <div data-time-block></div>
+            </div>
+            <div class="day-cell" data-day="3">
+              <p>WED</p>
+              <div data-time-block></div>
+            </div>
+            <div class="day-cell" data-day="4">
+              <p>THU</p>
+              <div data-time-block></div>
+            </div>
+            <div class="day-cell" data-day="5">
+              <p>FRI</p>
+              <div data-time-block></div>
+            </div>
+            <div class="day-cell" data-day="6">
+              <p>SAT</p>
+              <div data-time-block></div>
+            </div>
           </div>
-        <div class="hour-column">
-          <div class="column">
-            <span class="hours">0:00</span>
-            <span class="hours">1:00</span>
-            <span class="hours">2:00</span>
-            <span class="hours">3:00</span>
-            <span class="hours">4:00</span>
-            <span class="hours">5:00</span>
-            <span class="hours">6:00</span>
-            <span class="hours">7:00</span>
-            <span class="hours">8:00</span>
-            <span class="hours">9:00</span>
-            <span class="hours">10:00</span>
-            <span class="hours">11:00</span>
-            <span class="hours">12:00</span>
-            <span class="hours">13:00</span>
-            <span class="hours">14:00</span>
-            <span class="hours">15:00</span>
-            <span class="hours">16:00</span>
-            <span class="hours">17:00</span>
-            <span class="hours">18:00</span>
-            <span class="hours">19:00</span>
-            <span class="hours">20:00</span>
-            <span class="hours">21:00</span>
-            <span class="hours">22:00</span>
-            <span class="hours">23:00</span>
-          </div>
-        </div>
       </div>
+      <script src="logice1.js" defer></script>
   </body>
 </html>
