@@ -21,16 +21,18 @@ const renderCalendar = () => {
     let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); //getting last date of previous month
     let liTag = "";
     for (let i = firstDayofMonth; i > 0; i--) { //creating li of previous month last days
-        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+        const date = lastDateofLastMonth - i + 1;
+        liTag += `<li class="inactive" data-date-key="${`${months[currMonth - 1]}:${date}`}">${date}</li>`;
     }
     for (let i = 1; i <= lastDateofMonth; i++) { //creating li of all days of current month
         //adding active class to li if the current day, month, and year matched
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
                      && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}">${i}</li>`;
+        liTag += `<li class="${isToday}" data-date-key="${`${months[currMonth]}:${i}`}">${i}</li>`;
     }
     for (let i = lastDayofMonth; i < 6; i++) { //creating li of next month first days
-        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+        const date = i - lastDayofMonth + 1;
+        liTag += `<li class="inactive" data-date-key="${`${months[currMonth + 1]}:${date}`}">${date}</li>`
     }
     currentDate.innerText = `${months[currMonth]} ${currYear}`; //passing current mon and yr as currentDate text (Month View)
     currentDate2.innerText = `${months[currMonth]} ${currYear}`; //passing current mon and yr as currentDate2 text (Week View)
@@ -39,9 +41,9 @@ const renderCalendar = () => {
 renderCalendar();
 
 const renderTimeblocks = () => {
-    for(let i = 0; i < 7; i++ ) {
+    for(let i = 0; i < 7; i++ ) { // Loop for each day in a week
         const currentDay = document.querySelector(`[data-day="${i}"] [data-time-block]`);
-        for(let k = 0; k < 24; k++) {
+        for(let k = 0; k < 24; k++) { // Loop for each hour in a day
             //const currentBlock = `<span class="hours">${k}:00</span>`
             //currentDay.append(currentBlock);
             const spanElement = document.createElement("span");
@@ -68,12 +70,11 @@ prevNextIcon.forEach(icon => { //getting prev and next icons
         renderCalendar(); //calling renderCalendar function
     });
 
-
+});
 curDayIcon.forEach(icon => { //getting current day icon
-    icon.addEventListener("click", () => { //adding click event on current day icon
-        //if clicked, the week of the current day will be displayed below the calendar
-        alert("Day view of this date should pop up here");
+    icon.addEventListener("click", (e) => { //adding click event on current day icon
+        window.bus.publish("day:change", { key:e.target.dataset.dateKey });
         //Event will need to be added in this function to call a day view
     })
 });
-});
+
