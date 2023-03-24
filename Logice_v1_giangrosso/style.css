@@ -1,3 +1,4 @@
+
 h1{    
     font: 35;
     color: grey;
@@ -185,6 +186,18 @@ header .icons span:hover{
 }
 /*-END- Calendar Style*/
 
+/*Modal Style*/
+#modal-wrapper[aria-hidden="true"]{
+  display: none;
+}
+
+#modal-wrapper[aria-hidden="false"]{
+  display: block;
+}
+
+
+/*-END- Modal Style*/
+
 /*Week View Style*/
 .week-view{
   margin-top: 10px;
@@ -241,6 +254,10 @@ header .week-icons span {
 header .week-icons span:hover{
   background: #f2f2f2;
 }
+
+/*.day-cell div:hover {
+  background-color: lightblue;
+}*/
 /* -END- Week View Style*/
 
 
@@ -271,3 +288,6 @@ header .week-icons span:hover{
     color: white;
   }
   /*End Navigation Bar Style*/
+
+
+  

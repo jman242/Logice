@@ -8,20 +8,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 </head>
-
     <nav class="topline">
         <div class="container">
             <i class="fa-regular fa-l"></i>
             <h1>Logice</h1>
         <div class="topnav">
             <a class="active" href="#Home">Home</a>
-            <a href="#inbox">Inbox</a>
             <a href="#todo">To Do</a>
-            <a href="#meeting">Meeting</a>
             <a href="#settings">Settings</a>
+            <a href="#logout">Logout</a>
         </div>
     </nav>
-
     <body>
       <div class="sub-menu">
         <a class="active" href="#overview">Overview</a>
@@ -88,6 +85,11 @@
             </div>
           </div>
       </div>
-      <script src="logice1.js" defer></script>
+      <footer></footer> 
+      <div id="modal-wrapper" aria-hidden="true">
+        <button id="btn">Close</button>
+      </div>
+      <script src="js/index.js" defer type="module"></script>
   </body>
+  
 </html>
