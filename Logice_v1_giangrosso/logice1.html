@@ -87,9 +87,20 @@
       </div>
       <footer></footer> 
       <div id="modal-wrapper" aria-hidden="true">
-        <button id="btn">Close</button>
+        <form>
+          <h2>&nbsp;Create Event</h2><br>
+          <label for="title">&nbsp; Appointment Title: </label>
+          <input type="text" id="title" name="title"><br><br>
+          <label for="date">&nbsp; Choose a date: &nbsp; &nbsp;</label>
+          <input type="date" id="date">
+          <label for="time">&nbsp; Choose a timeslot: </label>
+          <input type="time" id="time"><br><br>
+          <p><label for="description">&nbsp; Description: </label></p>
+          <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+          <button id="submit-btn">Submit</button>
+          <button id="close-btn">Cancel</button>
+        </form>
       </div>
       <script src="js/index.js" defer type="module"></script>
   </body>
-  
 </html>
