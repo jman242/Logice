@@ -1,11 +1,5 @@
-/*curDayIcon.forEach(icon => { //getting current day icon
-    icon.addEventListener("click", (e) => { //adding click event on day icon
-        window.bus.publish("day:change", { key:e.target.dataset.dateKey });
-    })
-});*/
-
 var modal = document.getElementById("modal-wrapper");
-var modalDismiss = document.getElementById("btn");
+var modalDismiss = document.getElementById("close-btn");
 
 
 window.bus.subscribe("day:change", (payload) => {
