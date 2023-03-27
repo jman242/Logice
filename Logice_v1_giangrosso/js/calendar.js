@@ -14,7 +14,7 @@ let currDay = date.getDay();
 //storing full name of all months in array
 const months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];
-const renderCalendar = () => {
+const renderCalendar = (events) => {
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(); //getting first day of month
     let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(); //getting last date of month
     let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(); //getting last day of month
@@ -78,3 +78,7 @@ curDayIcon.forEach(icon => { //getting current day icon
     })
 });
 
+window.bus.subscribe("event:change", (payload) => {
+    console.log(payload.data);
+    renderCalendar(payload.data);
+})
