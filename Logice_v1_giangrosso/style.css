@@ -1,7 +1,7 @@
 
 h1{    
-    font: 35;
-    color: grey;
+    font-size: 35px;
+    color: #f2f2f2;
     font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: inline;
 }
@@ -29,7 +29,7 @@ h1{
     text-align: center;
     padding: 10px, 10px, 7px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .sub-menu a:hover {
@@ -51,16 +51,18 @@ div{
 .topnav{
     float: right;
 }
+
 .topline{
     width: 100%;
     margin: auto;
 }
 .fa-regular{
-    color:grey;
-    margin: auto;
-    padding: 5px; 
+    color: #f2f2f2;
+    font-size: xx-large;
+    padding: 10px; 
     background-color: rgb(5, 5, 77);
 }
+
 /* -END- Top Navigation bar w/ symbol*/
 
 /* Import Google font - Poppins */
@@ -193,46 +195,92 @@ header .icons span:hover{
 
 #modal-wrapper[aria-hidden="false"]{
   display: block;
+  width: 40%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 20px 2px 30px 4000px rgb(0 0 0 / 34%);
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  margin-top: 10px;
+  z-index: 1; /* Sit on top */
 }
 
 .modal-wrapper{
   display: hidden;
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.4); 
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+textarea{
+  width: 100%;
+  height: 150px;
+  padding: 5px 5px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+input[type="text"] {
+  width: 50%;
+  height: 28px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+input[type="date"] ::-webkit-calendar-picker-indicator {
   background: transparent;
   bottom: 0;
   color: transparent;
   cursor: pointer;
   height: auto;
   left: 0;
-  position: absolute;
+  position: relative;
   right: 0;
   top: 0;
-  width: auto;
+  width: 25px;
 }
 
-input[type="time"]::-webkit-calendar-picker-indicator {
+input[type="date" i] {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+input[type="time" i] {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+input[type="time"] ::-webkit-calendar-picker-indicator {
   background: transparent;
   bottom: 0;
   color: transparent;
   cursor: pointer;
   height: auto;
   left: 0;
-  position: absolute;
+  position: relative;
   right: 0;
   top: 0;
-  width: auto;
+  width: 25px;
 }
+
+h2{
+  margin: 5px;
+}
+
+button {
+  margin: 5px;
+  padding: 5px;
+}
+
 /*-END- Modal Style*/
 
 /*Week View Style*/
@@ -278,15 +326,29 @@ header .week-icons span {
   border: 1px solid black;
   text-align: center;
 }
-
+.day-cell [data-day-label]{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .column span{
   display: block;
 }
 .hours{
   border: 1px solid black;
   display: block;
+  position: relative;
   text-align: left;
-  height: 40px;
+  height: 60px;
+}
+
+.hours span{
+  display: block;
+}
+
+.hours >span:first-of-type {
+  position: absolute;
 }
 header .week-icons span:hover{
   background: #f2f2f2;
@@ -312,7 +374,7 @@ header .week-icons span:hover{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
   }
   /* Change the color of links on hover */
   .topnav a:hover {
