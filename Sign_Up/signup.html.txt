@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Logice Sign-Up</title>
+</head>
+
+<body>
+<fieldset>
+<legend>Sign-Up Form</legend>
+<form name="frmContact" method="post" action="signup.php">
+<p>
+<label for="First Name">First Name </label>
+<input type="text" name="f_name" id="f_name">
+</p>
+<p>
+<label for="Last Name">Last Name </label>
+<input type="text" name="l_name" id="l_name">
+</p>
+<p>
+<label for="email">Email</label>
+<input type="text" name="t_email" id="t_email">
+</p>
+<p>
+<label for="password">Password</label>
+<input type="text" name="t_password" id="t_password">
+</p>
+<p>&nbsp;</p>
+<p>
+<input type="submit" name="Submit" id="Submit" value="Submit">
+</p>
+</form>
+</fieldset>
+</body>
+</html>
