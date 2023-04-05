@@ -45,6 +45,23 @@
             <ul class="days"></ul>
           </div>
       </div>
+      <div id="modal-wrapper" aria-hidden="true">
+        <form id="form_id">
+          <h2>&nbsp;Create Event</h2><br>
+          <label for="title">&nbsp; Event Title: </label>
+          <input type="text" id="title" name="title" placeholder="Enter your event title"><br><br>
+          <label for="date">&nbsp; Choose a date: &nbsp; &nbsp;</label>
+          <input type="date" id="date">
+          <label for="time">&nbsp; From: </label>
+          <input type="time" id="time">
+          <label for="time">&nbsp; To: </label>
+          <input type="time" id="time"><br><br>
+          <p><label for="description">&nbsp; Description: </label></p>
+          <textarea id="description" name="description" placeholder="Enter your description" rows="4" cols="30"></textarea><br><br>
+          <button id="submit-btn">Submit</button>
+          <button id="close-btn" onclick = "reset()">Cancel</button> <!--resetting modal form input fields upon closing modal -->
+        </form>
+      </div>
       <div class="week-view">
         <header>
           <div class="week-icons">
@@ -56,53 +73,36 @@
         <div class="week-grid">
           <div class="row">
             <div class="day-cell" data-day="0">
-              <p>SUN</p>
+              <div data-day-label></div>
               <div data-time-block></div>
             </div>
             <div class="day-cell" data-day="1">
-              <p>MON</p>
+              <div data-day-label></div>
               <div data-time-block></div>
             </div>
             <div class="day-cell" data-day="2">
-              <p>TUE</p>
+              <div data-day-label></div>
               <div data-time-block></div>
             </div>
             <div class="day-cell" data-day="3">
-              <p>WED</p>
+              <div data-day-label></div>
               <div data-time-block></div>
             </div>
             <div class="day-cell" data-day="4">
-              <p>THU</p>
+              <div data-day-label></div>
               <div data-time-block></div>
             </div>
             <div class="day-cell" data-day="5">
-              <p>FRI</p>
+              <div data-day-label></div>
               <div data-time-block></div>
             </div>
             <div class="day-cell" data-day="6">
-              <p>SAT</p>
+              <div data-day-label></div>
               <div data-time-block></div>
             </div>
           </div>
       </div>
       <footer></footer>
-      <span id="modal-wrapper" aria-hidden="true">
-        <form>
-          <h2>&nbsp;Create Event</h2><br>
-          <label for="title">&nbsp; Appointment Title: </label>
-          <input type="text" id="title" name="title"><br><br>
-          <label for="date">&nbsp; Choose a date: &nbsp; &nbsp;</label>
-          <input type="date" id="date">
-          <label for="time">&nbsp; From: </label>
-          <input type="time" id="time">
-          <label for="time">&nbsp; To: </label>
-          <input type="time" id="time"><br><br>
-          <p><label for="description">&nbsp; Description: </label></p>
-          <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
-          <button id="submit-btn">Submit</button>
-          <button id="close-btn">Cancel</button>
-        </form>
-      </span>
       <script src="js/index.js" defer type="module"></script>
   </body>
 </html>
