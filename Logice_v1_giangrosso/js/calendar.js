@@ -1,4 +1,4 @@
-import { calculateEventHeight } from "./utils.js";
+import { calculateEventHeight } from "./utils.js"; // imported function for code consolidation
 
 const daysTag = document.querySelector(".days");
 const currentDate = document.querySelector(".current-date"); //month view date (Month and Year)
@@ -25,17 +25,17 @@ const renderCalendar = (events) => {
     let liTag = "";
     for (let i = firstDayofMonth; i > 0; i--) { //creating li of previous month last days
         const date = lastDateofLastMonth - i + 1;
-        liTag += `<li class="inactive" data-date-key="${`${months[currMonth - 1]}:${date}`}">${date}</li>`;
+        liTag += `<li class="inactive" data-date-key="${currYear}-${String(currMonth).padStart(2,"0")}-${String(date).padStart(2,"0")}">${date}</li>`;
     }
     for (let i = 1; i <= lastDateofMonth; i++) { //creating li of all days of current month
         //adding active class to li if the current day, month, and year matched
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
                      && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}" data-date-key="${`${months[currMonth]}:${i}`}">${i}</li>`;
+        liTag += `<li class="${isToday}" data-date-key="${currYear}-${String(currMonth + 1).padStart(2,"0")}-${String(i).padStart(2,"0")}">${i}</li>`;
     }
     for (let i = lastDayofMonth; i < 6; i++) { //creating li of next month first days
         const date = i - lastDayofMonth + 1;
-        liTag += `<li class="inactive" data-date-key="${`${months[currMonth + 1]}:${date}`}">${date}</li>`
+        liTag += `<li class="inactive" data-date-key="${currYear}-${String(currMonth + 2).padStart(2,"0")}-${String(date).padStart(2,"0")}">${date}</li>`
     }
     currentDate.innerText = `${months[currMonth]} ${currYear}`; //passing current month and year as currentDate text (Month View)
     currentDate2.innerText = `${months[currMonth]} ${currYear}`; //passing current month and year as currentDate2 text (Week View)
@@ -61,13 +61,11 @@ const renderTimeblocks = (dateRef, events) => {
         let eventDate = new Date(event.starts_at); // date api
         let month = eventDate.getMonth();
         let day = eventDate.getDate();
-        let hour = eventDate.getHours() + 5; // + 5 for time offset adjustment
+        let hour = eventDate.getHours(); 
         let minutes = eventDate.getMinutes();
         let eventEndDate = new Date(event.ends_at)
-        let endHour = eventEndDate.getHours() + 5; // + 5 for time offset adjustment
+        let endHour = eventEndDate.getHours(); 
         let endMinutes = eventEndDate.getMinutes();
-
-        //let spanTag = "";
 
         for(let j = 0; j < 12; j++){ //looping through months array to find correct month
             if(months[j] == dateRef.month){
@@ -82,17 +80,10 @@ const renderTimeblocks = (dateRef, events) => {
                 if(day == dateRef.week[i]){
                     //build data-event-target key
                     var eventTargetKey = `${month}:${day}:${hour}`;
-                    
-                    //console.log(month, day, hour);
-                    
 
-                    // look for element that matches key
                     const eventTimeBlock = document.querySelector(`[data-event-target="${eventTargetKey}"]`); //attempting to grab Month:Day:Hour from html
-                    //console.log(eventTimeBlock.getAttribute("data-event-target"));
-                    //console.log(eventTargetKey);
-
-                    //spanTag = <span> data-event-target="`${month}:${day}:${hour}`"</span>;
                     const spanElement = document.createElement("span");
+                    
                     spanElement.innerHTML = `<span>${event.title}</span><span>${hour}:${minutes ? minutes : "00"} to ${endHour}:${endMinutes ? endMinutes : "00"}</span>` // ? if else statement ternary
                     spanElement.style.backgroundColor="rgba(2, 4, 110, 0.571)"
                     spanElement.style.height= `${calculateEventHeight(eventDate, eventEndDate)}px`; //calculating height based on difference 
@@ -102,22 +93,6 @@ const renderTimeblocks = (dateRef, events) => {
                 }
             }
         }
-        
-/*
-        
-    //if(// event.starts_at month matches dateRef.month){ --
-
-    if(// event.starts_at day is present in dateRef.week array){ --
-
-      // build data-event-target key
-
-      // look for element that matches key
-
-     // create new element, add event details, then put inside element that matches key
-
-    }
-
-}*/
     })
 }
 
