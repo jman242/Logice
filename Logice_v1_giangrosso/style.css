@@ -5,7 +5,9 @@ h1{
     font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: inline;
 }
-
+body{
+  min-height: 100vh;
+}
 .container{
     width: 100%;
     float: left;
@@ -49,18 +51,18 @@ div{
 
 /*Top Navigation bar w/ symbol*/
 .topnav{
-    float: right;
+  float: right;
 }
 
 .topline{
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
 }
 .fa-regular{
-    color: #f2f2f2;
-    font-size: xx-large;
-    padding: 10px; 
-    background-color: rgb(5, 5, 77);
+  color: #f2f2f2;
+  font-size: xx-large;
+  padding: 10px; 
+  background-color: rgb(5, 5, 77);
 }
 
 /* -END- Top Navigation bar w/ symbol*/
@@ -105,10 +107,10 @@ header .icons span{
   width: 38px;
   margin: 0 1px;
   cursor: pointer;
-  color: #878787;
   text-align: center;
   line-height: 38px;
   font-size: 1.9rem;
+  color: black;
   user-select: none;
   border-radius: 50%;
 }
@@ -121,11 +123,17 @@ header .icons span:hover{
 .current-date{
   font-size: 1.45rem;
   font-weight: 500;
+  font-weight: bold;
 }
 
 .current-date2{
   font-size: 1.15rem;
   font-weight: 300;
+  vertical-align: middle;
+  /* resize: horizontal; */
+  /* text-align: center; */
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 .calendar{
   padding: 20px;
@@ -201,10 +209,10 @@ header .icons span:hover{
   box-shadow: 20px 2px 30px 4000px rgb(0 0 0 / 34%);
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 15%;
   transform: translate(-50%, -50%);
   margin-top: 10px;
-  z-index: 1; /* Sit on top */
+  z-index: 3; /* Sit on top */
 }
 
 .modal-wrapper{
@@ -292,11 +300,12 @@ button {
   box-shadow: 0 15px 40px rgba(0,0,0,0.12);
   position: relative;
 }
+
 header .week-icons span {
   height: 38px;
   width: 38px;
   cursor: pointer;
-  color: #878787;
+  color: black;
   text-align: center;
   line-height: 38px;
   font-size: 1.9rem;
@@ -319,7 +328,10 @@ header .week-icons span {
 }
 .week-view p{
   display: inline-block;
+  font-weight: bold;
 }
+
+
 .day-cell{
   width: 100%;
   height: 100%;
@@ -330,21 +342,31 @@ header .week-icons span {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-weight: bold;
   align-items: center;
+  position: sticky;
+  top: 0;
+  border: 1.5px solid #333;
+  background: border-box;
+  background-color: rgba(2, 4, 110, 0.571);
+  color: white;
+  z-index: 2;
 }
 .column span{
   display: block;
 }
 .hours{
-  border: 1px solid black;
+  border: 1px solid transparent;
   display: block;
   position: relative;
   text-align: left;
   height: 60px;
+  border-bottom-width: 0px;
 }
 
 .hours span{
   display: block;
+  text-align: right;
 }
 
 .hours >span:first-of-type {

@@ -3,57 +3,113 @@
         {
             "id": 0 ,
             "title": "Capstone II Meeting",
-            "starts_at": "2023-04-02T19:00:00+00:00" ,
-            "ends_at": "2023-04-02T20:30:00+00:00" ,
+            "starts_at": "2023-04-09 19:00:00",
+            "ends_at": "2023-04-09 20:30:00",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
             "id": 1 ,
             "title": "Capstone II Meeting",
-            "starts_at": "2023-04-03T19:40:58+00:00" ,
-            "ends_at": "2023-04-03T20:40:58+00:00" ,
+            "starts_at": "2023-04-10 19:00:58",
+            "ends_at": "2023-04-10 20:00:58",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
             "id": 2 ,
             "title": "Capstone II Meeting",
-            "starts_at": "2023-04-04T19:40:58+00:00" ,
-            "ends_at": "2023-04-04T20:40:58+00:00" ,
+            "starts_at": "2023-04-11 19:00:58",
+            "ends_at": "2023-04-11 20:15:58",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
             "id": 3 ,
-            "title": "Event One",
-            "starts_at": "2023-04-05T10:00:00+00:00" ,
-            "ends_at": "2023-04-05T11:30:00+00:00" ,
+            "title": "Conference",
+            "starts_at": "2023-04-12 13:00:00",
+            "ends_at": "2023-04-12 14:30:00",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
             "id": 4 ,
-            "title": "Event One",
-            "starts_at": "2023-04-06T13:00:00+00:00" ,
-            "ends_at": "2023-04-06T13:30:00+00:00" ,
+            "title": "Call John Smith",
+            "starts_at": "2023-04-13 13:00:00",
+            "ends_at": "2023-04-13 13:30:00",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
             "id": 5 ,
-            "title": "Event One",
-            "starts_at": "2023-04-07T09:00:00+00:00" ,
-            "ends_at": "2023-04-07T09:15:00+00:00" ,
+            "title": "Zoom Call",
+            "starts_at": "2023-04-14 09:00:00",
+            "ends_at": "2023-04-14 09:15:00",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
             "id": 6 ,
             "title": "Capstone II Meeting",
-            "starts_at": "2023-04-08T19:40:58+00:00" ,
-            "ends_at": "2023-04-08T20:40:58+00:00" ,
+            "starts_at": "2023-04-15 19:00:58",
+            "ends_at": "2023-04-15 20:40:58",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
             "id": 7 ,
-            "title": "Capstone II Meeting",
-            "starts_at": "2023-04-08T20:40:58+00:00" ,
-            "ends_at": "2023-04-08T21:40:58+00:00" ,
+            "title": "Work on Project",
+            "starts_at": "2023-04-15 20:40:58",
+            "ends_at": "2023-04-15 21:40:58",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+            "id": 8 ,
+            "title": "Work on Project",
+            "starts_at": "2023-04-14 10:30:58",
+            "ends_at": "2023-04-14 11:45:58",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+            "id": 9 ,
+            "title": "Project Review",
+            "starts_at": "2023-04-14 12:00:58",
+            "ends_at": "2023-04-14 12:45:58",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+            "id": 10 ,
+            "title": "Class Meeting",
+            "starts_at": "2023-04-10 08:15:58",
+            "ends_at": "2023-04-10 12:30:58",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+            "id": 11 ,
+            "title": "Class Meeting",
+            "starts_at": "2023-04-11 08:15:58",
+            "ends_at": "2023-04-11 12:30:58",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+            "id": 12 ,
+            "title": "Class Meeting",
+            "starts_at": "2023-04-12 08:15:58",
+            "ends_at": "2023-04-12 12:30:58",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+            "id": 13 ,
+            "title": "Doctor's Appt.",
+            "starts_at": "2023-04-13 09:00:58",
+            "ends_at": "2023-04-13 09:15:58",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+            "id": 14 ,
+            "title": "Class Meeting",
+            "starts_at": "2023-04-13 14:00:58",
+            "ends_at": "2023-04-13 17:00:58",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+            "id": 15 ,
+            "title": "Concert",
+            "starts_at": "2023-04-14 20:00:58",
+            "ends_at": "2023-04-14 20:45:58",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         }
     ]
