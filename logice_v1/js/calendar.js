@@ -3,7 +3,7 @@ import { calculateEventHeight } from "./utils.js"; // imported function for code
 const daysTag = document.querySelector(".days");
 const currentDate = document.querySelector(".current-date"); //month view date (Month and Year)
 const currentDate2 = document.querySelector(".current-date2"); //week view date (Month and Year)
-const prevNextIcon = document.querySelectorAll(".icons span");
+const prevNextIcon = document.querySelectorAll(".icons span"); //Icons for changing months
 const curDayIcon = document.querySelectorAll(".wrapper ul"); //creating days icons
 const hoursTag = document.querySelector(".hours"); //creating hours for week view
 

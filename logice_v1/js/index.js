@@ -4,8 +4,8 @@ import "./calendar.js"
 import "./modal.js"
 
 
-//example for a mock fetch
-export function mockFetch() {
+//example for a mock fetch 
+export function mockFetch() { //response testing
     const coreFetch = window.fetch;
   
     window.fetch = (input, init) => {
