@@ -35,12 +35,13 @@ modalSubmit.addEventListener("submit", async (e) =>{
     var body = {
         title, description, starts_at, ends_at 
     }
-    //console.log(body);
+    
     
     var response = await fetch("/api/new-event?user-id=lfh323", {
-        method: "POST", //GET POST PUT DELETE
-        body: JSON.stringify(body)//requires json object, stringify converts parameters to json format
+        method: "POST", // Types: GET POST PUT DELETE
+        body: JSON.stringify(body) //requires json object, stringify converts parameters to json format
     }) //api
     var data = await response.json()
     console.log(data);
+    modal.setAttribute("aria-hidden", true); // Hiding modal after submitting form
 })
