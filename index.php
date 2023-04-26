@@ -13,10 +13,10 @@
       <i class="fa-regular fa-l"></i>
       <h1>Logice</h1>
   <div class="topnav">
-      <a class="active" href="./home.html">Home</a>
-      <a href="../WebNote/notes_dashboard.html">Notes</a>
+      <a class="active" href="/">Home</a>
+      <a href="/notes">Notes</a>
       <a href="#settings">Settings</a>
-      <a href="../Login/login.html">Logout</a>
+      <a href="/login">Logout</a>
   </div>
 </nav>
     <body>
