@@ -50,10 +50,17 @@ const renderTimeblocks = (dateRef, events) => {
         currentDay.innerHTML = `<span>${dateRef.week[i]}</span><span>${days[i]}</span>`
         for(let k = 0; k < 24; k++) { // Loop for each hour in a day
             const spanElement = document.createElement("span");
-            spanElement.setAttribute("data-event-target", `${dateRef.month}:${dateRef.week[i]}:${k}`); 
+            spanElement.setAttribute("data-event-target", `${dateRef.month}:${dateRef.week[i]}:${k}`);
             spanElement.classList.add("hours");
-            spanElement.innerHTML = `<span>${k}</span>`;
-            timeGrid.appendChild(spanElement);
+            if(i == 0){
+                spanElement.innerHTML = `<span>${k}</span>`;
+                timeGrid.appendChild(spanElement);
+            }
+            else{
+                spanElement.innerHTML = `<span></span>`;
+                timeGrid.appendChild(spanElement);
+           }
+            
         }
     }
 
