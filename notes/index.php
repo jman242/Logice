@@ -26,7 +26,7 @@
             <a href="javascript:void(0)" class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="note-important"> <i class="icon-tag mr-1"></i><span class="d-none d-md-block">Important</span></a>
         </li>
         <li class="nav-item">
-            <a href="../home_page/home.html" class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2"><span class="d-none d-md-block">Back to Overview</span></a>
+            <a href="/" class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2"><span class="d-none d-md-block">Back to Overview</span></a>
         </li>
         <li class="nav-item ml-auto">
             <a href="javascript:void(0)" class="nav-link btn-primary rounded-pill d-flex align-items-center px-3" id="add-notes"> <i class="icon-note m-0"></i><h5><span class="d-none d-md-block font-14"> + </span></h5></a>
