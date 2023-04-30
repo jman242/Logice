@@ -13,9 +13,9 @@
       <i class="fa-regular fa-l"></i>
       <h1>Logice</h1>
   <div class="topnav">
-      <a class="active" href="/">Home</a>
+      <a href="/">Home</a>
       <a href="/notes">Notes</a>
-      <a href="#settings">Settings</a>
+      <!--<a href="#settings">Settings</a>-->
       <a href="/login">Logout</a>
   </div>
 </nav>
@@ -23,6 +23,7 @@
       <div class="wrapper">
           <header>
             <p class="current-date"></p>
+            <button id = "create-event" class="button">Create Event</button>
             <div class="icons">
               <span id="prev" class="material-symbols-rounded">chevron_left</span>
               <span id="next" class="material-symbols-rounded">chevron_right</span>
@@ -45,7 +46,8 @@
         <header>
           <div class="week-icons">
               <span></span>
-              <p class="current-date2"></p>
+              <p>Week View</p>
+              <!--<p class = "current-week"></p> -->
               <span></span>
           </div>
         </header>
@@ -82,7 +84,7 @@
           </div>
       </div>
       <footer></footer>
-      <div id="modal-wrapper" aria-hidden="true">
+      <div data-modal id="modal-wrapper" aria-hidden="true">
         <form id="form_id">
           <h2>&nbsp;Create Event</h2><br>
           <label for="title">&nbsp; Event Title: </label>
@@ -96,7 +98,19 @@
           <p><label for="description">&nbsp; Description: </label></p>
           <textarea id="description" name="description" placeholder="Enter your description" rows="4" cols="30" required></textarea><br><br>
           <button id="submit-btn">Submit</button>
-          <button id="close-btn" onclick = "reset()">Close</button> <!--resetting modal form input fields upon closing modal -->
+          <button data-close onclick = "reset()">Close</button> <!--resetting modal form input fields upon closing modal -->
+        </form>
+      </div>
+      <div data-modal id="modal-wrapper2" aria-hidden="true">
+        <form id="event_id">
+          <h2>&nbsp;Event Details</h2><br>
+          <label for="title">&nbsp; Event Title: </label>
+          <label for="date">&nbsp; Event date: &nbsp; &nbsp;</label>
+          <label for="time">&nbsp; Starts at: </label>
+          <label for="time">&nbsp; Ends at: </label>
+          <p><label for="description">&nbsp; Description: </label></p>
+          <button id="delete-btn">Delete Event</button>
+          <button data-close>Close</button> 
         </form>
       </div>
       <script src="./js/index.js" defer type="module"></script>

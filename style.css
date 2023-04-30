@@ -1,4 +1,3 @@
-
 h1{    
     font-size: 35px;
     color: #f2f2f2;
@@ -91,17 +90,37 @@ header .icons span{
 header .icons span:hover{
   background: #f2f2f2;
 }
+
 .current-date{
   font-size: 1.45rem;
   font-weight: 500;
   font-weight: bold;
 }
 
+.button {
+  background-color: white;
+  border: 1px solid  rgba(2, 4, 110, 0.571);
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button:hover{
+  background-color: rgba(2, 4, 110, 0.571); 
+  color: white; 
+  transition: .5s;
+}
+
 .current-date2{
-  font-size: 1.15rem;
   font-weight: 300;
-  vertical-align: middle;
-  margin-top: -10px;
   margin-bottom: 10px;
 }
 .calendar{
@@ -258,7 +277,35 @@ button {
   padding: 5px;
 }
 
-/*-END- Modal Style*/
+/*-END- Modal 1 Style*/
+
+/*Modal 2 Style*/
+#modal-wrapper2[aria-hidden="true"]{
+  display: none;
+}
+
+#modal-wrapper2[aria-hidden="false"]{
+  display: block;
+  width: 40%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 20px 2px 30px 4000px rgb(0 0 0 / 34%);
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, -50%);
+  margin-top: 10px;
+  z-index: 3; /* Sit on top */
+}
+
+.modal-wrapper2{
+  display: hidden;
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  overflow: auto; /* Enable scroll if needed */
+}
+/*End Modal 2 Style*/
 
 /*Week View Style*/
 .week-view{
@@ -338,6 +385,7 @@ header .week-icons span {
 .hours span{
   display: block;
   text-align: right;
+  cursor: pointer;
 }
 
 .hours >span:first-of-type {
