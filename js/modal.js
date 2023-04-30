@@ -1,21 +1,37 @@
 var modal = document.getElementById("modal-wrapper");
-var modalDismiss = document.getElementById("close-btn");
 var modalSubmit = document.getElementById("form_id");
+var modal2 = document.getElementById("modal-wrapper2");
+var createEvent = document.getElementById("create-event");
 
-window.bus.subscribe("day:change", (payload) => {
-    if (payload.key != undefined){ //check to see if user clicked day of the month in calendar view
-        document.getElementById("date").value = payload.key;
-        modal.setAttribute("aria-hidden", false);
-    }
+window.bus.subscribe("event:loaded", (payload) => {
+    var openEvent = document.querySelectorAll("[data-id]");
+    openEvent.forEach(event =>{
+            event.addEventListener("click", () => {
+                console.log(event);
+                modal2.setAttribute("aria-hidden", false);
+            })
+        })
+        var close = document.querySelectorAll("[data-close]");
+        close.forEach(close_button =>{
+            close_button.addEventListener("click", (e) =>{
+                console.log(e);
+                e.preventDefault();
+                e.target.closest("[data-modal]").setAttribute("aria-hidden", true); 
+            })
+        })
 })
 
-modalDismiss.addEventListener("click", (e) =>{
-    console.log(e);
-    e.preventDefault();
-    modal.setAttribute("aria-hidden", true);
+
+createEvent.addEventListener("click", () =>{
+    document.getElementById("date").value = window.selectedDate;
+    console.log(document.getElementById("date").value);
+    modal.setAttribute("aria-hidden", false);
 })
 
-modalSubmit.addEventListener("submit", async (e) =>{
+
+
+
+modalSubmit.addEventListener("submit", async (e) =>{ //including error handling
     e.preventDefault(); // prevents refresh of page
 
     var title = document.getElementById("title").value;
@@ -37,11 +53,11 @@ modalSubmit.addEventListener("submit", async (e) =>{
     }
     
     
-    var response = await fetch("/api/new-event?user-id=lfh323", {
-        method: "POST", // Types: GET POST PUT DELETE
-        body: JSON.stringify(body) //requires json object, stringify converts parameters to json format
-    }) //api
-    var data = await response.json()
-    console.log(data);
+    // var response = await fetch("/api/new-event?user-id=lfh323", {
+    //     method: "POST", // Types: GET POST PUT DELETE
+    //     body: JSON.stringify(body) //requires json object, stringify converts parameters to json format
+    // }) //api
+    // var data = await response.json()
+    //console.log(data);
     modal.setAttribute("aria-hidden", true); // Hiding modal after submitting form
 })
