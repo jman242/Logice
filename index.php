@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 900) {
+  // last request was more than 15 minutes ago
+  session_unset(); // unset $_SESSION variable for the run-time
+  session_destroy(); // destroy session data in storage
+  header("Location: Login/login.html"); // redirect to login page
+}
+$_SESSION['last_activity'] = time(); // update last activity time stamp
+
+if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
+
+ ?>
+
 <!DOCTYPE html>
 <html lang ="en" dir="ltr">
 <head>
@@ -11,10 +26,11 @@
 <nav class="topline">
   <div class="container">
       <i class="fa-regular fa-l"></i>
-      <h1>Logice</h1>
+      <h1>Logice - Welcome User: <?php echo $_SESSION['username']; ?></h1>
   <div class="topnav">
       <a href="/">Home</a>
       <a href="/notes">Notes</a>
+      <a href="search.php">Search Event </a>
       <!--<a href="#settings">Settings</a>-->
       <a href="/login">Logout</a>
   </div>
@@ -85,16 +101,24 @@
       </div>
       <footer></footer>
       <div data-modal id="modal-wrapper" aria-hidden="true">
-        <form id="form_id">
+        <form id="form_id" method="post" action="event.php">
           <h2>&nbsp;Create Event</h2><br>
           <label for="title">&nbsp; Event Title: </label>
           <input type="text" id="title" name="title" placeholder="Enter your event title" required><br><br>
           <label for="date">&nbsp; Choose a date: &nbsp; &nbsp;</label>
-          <input type="date" id="date" required>
+          <input type="date" id="date" name="date" required>
           <label for="time">&nbsp; Starts at: </label>
-          <input type="time" id="starts_at" required>
+          <input type="time" id="starts_at" name="f_time" required>
           <label for="time">&nbsp; Ends at: </label>
-          <input type="time" id="ends_at" required><br><br>
+          <input type="time" id="ends_at" name="t_time" required><br><br>
+          <label for="category">&nbsp; Category: </label>
+          <select name="category" id="category">
+            <option value="Meeting">Meeting</option>
+            <option value="Play">Play</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Meeting">Medical</option>
+            <option value="Date">Date</option>
+          </select>
           <p><label for="description">&nbsp; Description: </label></p>
           <textarea id="description" name="description" placeholder="Enter your description" rows="4" cols="30" required></textarea><br><br>
           <button id="submit-btn">Submit</button>
@@ -116,3 +140,14 @@
       <script src="./js/index.js" defer type="module"></script>
   </body>
 </html>
+<?php
+
+}else{
+
+     header("Location: ../Login/login.html");
+
+     exit();
+
+}
+
+ ?>
