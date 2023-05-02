@@ -144,7 +144,7 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
 
 }else{
 
-     header("Location: ../Login/login.html");
+     header("Location: ../login/index.php");
 
      exit();
 
