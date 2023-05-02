@@ -67,7 +67,7 @@
   <body>
     <div class="login-container">
       <h2 class="login-heading">User Login</h2>
-      <form>
+      <form method="post" action="login.php">
         <input type="text" name="username" class="login-input" placeholder="Username or email" required>
         <input type="password" name="password" class="login-input" placeholder="Password" required>
         <button type="submit" class="login-button">Press to start!</button>
