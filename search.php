@@ -1,7 +1,7 @@
 <?php ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include 'config.php';
+$dbconn = pg_connect("host=logice.cw3uk8qntram.us-east-2.rds.amazonaws.com port=5432 dbname=postgres user=postgres password=Logice1!");
 session_start();
 
 if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
