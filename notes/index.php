@@ -1,3 +1,21 @@
+<?php
+
+session_start();
+if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 900) {
+  // last request was more than 15 minutes ago
+  session_unset(); // unset $_SESSION variable for the run-time
+  session_destroy(); // destroy session data in storage
+  header("Location: ../login/index.php"); // redirect to login page
+}
+$_SESSION['last_activity'] = time(); // update last activity time stamp
+
+if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
+
+$dbconn = pg_connect("host=logice.cw3uk8qntram.us-east-2.rds.amazonaws.com port=5432 dbname=postgres user=postgres password=Logice1!");
+$rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,70 +54,40 @@
     </ul>
     <div class="tab-content bg-transparent">
         <div id="note-full-container" class="note-has-grid row">
-            
-            <div class="col-md-4 single-note-item all-category note-important">
-                <div class="card card-body">
-                    <span class="side-stick"></span>
-                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Go for lunch">MINI PROJECT <i class="point fa fa-circle ml-1 font-10"></i></h5>
-                    <p class="note-date font-12 text-muted">19 November 2021</p>
-                    <div class="note-content">
-                        <p>1. Prerequisite assignment </p>
-                        <p>2. Assignment 1 and 2</p>
-                        <p>3. Implementation </p>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
-                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
-                        <div class="ml-auto">
-                            <div class="category-selector btn-group">
-                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
-                                    <div class="category">
-                                        <div class="category-important"></div>
-                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-                                    </div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right category-menu">
+        <?php if(pg_num_rows($rs) > 0){
+			while($out = pg_fetch_array($rs)) {    
+				echo "<div class="col-md-4 single-note-item all-category note-important">";
+					echo "<div class="card card-body">";
+						echo "<span class="side-stick"></span>";
+						echo "<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Go for lunch">".$out['Title']."<i class="point fa fa-circle ml-1 font-10"></i></h5>";
+                   // <p class="note-date font-12 text-muted">19 November 2021</p>
+						echo "<div class="note-content">".$out['description'];
+						echo "</div>";
+                    echo "<div class="d-flex align-items-center">";
+                        echo "<span class="mr-1"><i class="fa fa-star favourite-note"></i></span>";
+                        echo "<span class="mr-1"><i class="fa fa-trash remove-note"></i></span>";
+                        echo "<div class="ml-auto">";
+                            echo "<div class="category-selector btn-group">";
+                                echo "<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">";
+                                    echo "<div class="category">";
+                                        echo "<div class="category-important"></div>";
+                                        echo "<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>";
+                                    echo "</div>";
+                                echo "</a>";
+                                echo "<div class="dropdown-menu dropdown-menu-right category-menu">";
                                     
-                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
-                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 single-note-item all-category note-important">
-                <div class="card card-body">
-                    <span class="side-stick"></span>
-                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Go for lunch">Movie Night Suggestions<i class="point fa fa-circle ml-1 font-10"></i></h5>
-                    <p class="note-date font-12 text-muted">26 March 2021</p>
-                    <div class="note-content">
-                        <p>1. Dune</p>
-                        <p>2. Shang Chi</p>
-                        <p>3. Hangover</p>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
-                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
-                        <div class="ml-auto">
-                            <div class="category-selector btn-group">
-                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
-                                    <div class="category">
-                                        <div class="category-important"></div>
-                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-                                    </div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right category-menu">
-                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
-                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                    echo "<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">";
+                                        echo "<i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important";
+                                    echo "</a>";
+                                echo "</div>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+            echo "</div>";
+			}
+		}
+?>
 
 
     <!-- Modal Add notes -->
@@ -112,40 +100,51 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
+				<form action="index.php" id="addnotesmodalTitle" method="POST">
                 <div class="modal-body">
                     <div class="notes-box">
                         <div class="notes-content">
-                            <form action="javascript:void(0);" id="addnotesmodalTitle">
+
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <div class="note-title">
                                             <label>Note Title</label>
-                                            <input type="text" id="note-has-title" class="form-control" minlength="25" placeholder="Title" />
+                                            <input type="text" id="note-has-title" name="title" class="form-control" minlength="25" placeholder="Title" />
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="note-description">
                                             <label>Note Description</label>
-                                            <textarea id="note-has-description" class="form-control" minlength="60" placeholder="Description" rows="3"></textarea>
+                                            <textarea id="note-has-description" name="description" class="form-control" minlength="60" placeholder="Description" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button id="btn-n-save" class="float-left btn btn-success" style="display: none;">Save</button>
                     <button class="btn btn-danger" data-dismiss="modal">Discard</button>
-                    <button id="btn-n-add" class="btn btn-info" disabled="disabled">Add</button>
+                    <input type="submit" name="add" id="btn-n-add" class="btn btn-info" disabled="disabled" value="Add" />
                 </div>
+				</form>
             </div>
         </div>
     </div>
 </div>
-
-
+<?php
+if(isset($_POST['add'])) {
+	$title=$_POST['title'];
+	$desc=$_POST['description'];
+	
+	$sql="INSERT INTO note (uid, Title, description) VALUES (".$_SESSION['userid'].", '$title', '$desc')";
+	$rs=pg_query($dbconn, $sql);
+	if(!$rs){
+		echo pg_last_error($dbconn);
+	}
+}
+?>
 <style type="text/css">
 
 body{
@@ -359,8 +358,8 @@ $(function() {
     // Button add
     $("#btn-n-add").on('click', function(event) {
         event.preventDefault();
-        /* Act on the event */
-        var today = new Date();
+        /* Act on the event - This is nulled out as event adding will be doe via db. */
+      /*  var today = new Date();
       var dd = String(today.getDate()).padStart(2, '0');
       var mm = String(today.getMonth()); //January is 0!
       var yyyy = today.getFullYear();
@@ -399,7 +398,7 @@ $(function() {
                                     '</div>' +
                                 '</div>' +
                             '</div></div> ';
-
+		*/
         $("#note-full-container").prepend($html);
         $('#addnotesmodal').modal('hide');
 
@@ -439,3 +438,4 @@ $(function() {
 </script>
 </body>
 </html>
+<?php } ?>
