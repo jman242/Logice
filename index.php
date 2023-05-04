@@ -126,16 +126,16 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
         </form>
       </div>
       <div data-modal id="modal-wrapper2" aria-hidden="true">
-        <form id="event_id">
+        <div id="event_id">
           <h2>&nbsp;Event Details</h2><br>
-          <label for="title">&nbsp; Event Title: </label>
-          <label for="date">&nbsp; Event date: &nbsp; &nbsp;</label>
-          <label for="time">&nbsp; Starts at: </label>
-          <label for="time">&nbsp; Ends at: </label>
-          <p><label for="description">&nbsp; Description: </label></p>
+          <p>&nbsp; Event Title: <span id="event_title"></span></p>
+          <p>&nbsp; Event date: &nbsp; &nbsp;<span id="event_date"></span></p>
+          <p>&nbsp; Starts at: <span id="event_starts_at"></span></p>
+          <p>&nbsp; Ends at: <span id="event_ends_at"></span></p>
+          <p>&nbsp; Description: <span id="event_description"></span></p>
           <button id="delete-btn">Delete Event</button>
           <button data-close>Close</button> 
-        </form>
+        </div>
       </div>
       <script src="./js/index.js" defer type="module"></script>
   </body>

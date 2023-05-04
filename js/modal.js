@@ -2,29 +2,42 @@ var modal = document.getElementById("modal-wrapper");
 var modalSubmit = document.getElementById("form_id");
 var modal2 = document.getElementById("modal-wrapper2");
 var createEvent = document.getElementById("create-event");
+var title = document.getElementById("event_title");
+var date = document.getElementById("event_date");
+var starts_at = document.getElementById("event_starts_at");
+var ends_at = document.getElementById("event_ends_at");
+var description = document.getElementById("event_description");
 
 window.bus.subscribe("event:loaded", (payload) => {
+    //console.log("TEST");
     var openEvent = document.querySelectorAll("[data-id]");
     openEvent.forEach(event =>{
+            var data = JSON.parse(event.getAttribute("data-json"))
             event.addEventListener("click", () => {
-                console.log(event);
+                var startDate = new Date(data.starts_at);
+                title.innerHTML = data.title;
+                description.textContent = data.description;
+                date.textContent = startDate.toLocaleString().split(',')[0];
+                starts_at.textContent = `${startDate.getHours()}:${String(startDate.getMinutes()).padStart(2,"0")}`
+                var endDate = new Date(data.ends_at);
+                ends_at.textContent = `${endDate.getHours()}:${endDate.getMinutes()}`;
                 modal2.setAttribute("aria-hidden", false);
             })
         })
-        var close = document.querySelectorAll("[data-close]");
-        close.forEach(close_button =>{
-            close_button.addEventListener("click", (e) =>{
-                console.log(e);
-                e.preventDefault();
-                e.target.closest("[data-modal]").setAttribute("aria-hidden", true); 
-            })
-        })
+})
+
+var close = document.querySelectorAll("[data-close]");
+close.forEach(close_button =>{
+    close_button.addEventListener("click", (e) =>{
+        e.preventDefault();
+        e.target.closest("[data-modal]").setAttribute("aria-hidden", true); 
+    })
 })
 
 
 createEvent.addEventListener("click", () =>{
     document.getElementById("date").value = window.selectedDate;
-    console.log(document.getElementById("date").value);
+    //console.log(document.getElementById("date").value);
     modal.setAttribute("aria-hidden", false);
 })
 

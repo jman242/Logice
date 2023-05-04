@@ -15,3 +15,6 @@ class PubSub {
 }
 
 window.bus = new PubSub();
+
+//subscribe is receive 
+//publish is send
