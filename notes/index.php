@@ -56,28 +56,28 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
         <div id="note-full-container" class="note-has-grid row">
         <?php if(pg_num_rows($rs) > 0){
 			while($out = pg_fetch_array($rs)) {    
-				echo "<div class="col-md-4 single-note-item all-category note-important">";
-					echo "<div class="card card-body">";
-						echo "<span class="side-stick"></span>";
-						echo "<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Go for lunch">".$out['Title']."<i class="point fa fa-circle ml-1 font-10"></i></h5>";
+				echo "<div class='col-md-4 single-note-item all-category note-important'>";
+					echo "<div class='card card-body'>";
+						echo "<span class='side-stick'></span>";
+						echo "<h5 class='note-title text-truncate w-75 mb-0' data-noteheading='Go for lunch'>".$out['Title']."<i class='point fa fa-circle ml-1 font-10'></i></h5>";
                    // <p class="note-date font-12 text-muted">19 November 2021</p>
-						echo "<div class="note-content">".$out['description'];
+						echo "<div class='note-content'>".$out['description'];
 						echo "</div>";
-                    echo "<div class="d-flex align-items-center">";
-                        echo "<span class="mr-1"><i class="fa fa-star favourite-note"></i></span>";
-                        echo "<span class="mr-1"><i class="fa fa-trash remove-note"></i></span>";
-                        echo "<div class="ml-auto">";
-                            echo "<div class="category-selector btn-group">";
-                                echo "<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">";
-                                    echo "<div class="category">";
-                                        echo "<div class="category-important"></div>";
-                                        echo "<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>";
+                    echo "<div class='d-flex align-items-center'>";
+                        echo "<span class='mr-1'><i class='fa fa-star favourite-note'></i></span>";
+                        echo "<span class='mr-1'><i class='fa fa-trash remove-note'></i></span>";
+                        echo "<div class='ml-auto'>";
+                            echo "<div class='category-selector btn-group'>";
+                                echo "<a class='nav-link dropdown-toggle category-dropdown label-group p-0' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='true'>";
+                                    echo "<div class='category'>";
+                                        echo "<div class='category-important'></div>";
+                                        echo "<span class='more-options text-dark'><i class='icon-options-vertical'></i></span>";
                                     echo "</div>";
                                 echo "</a>";
-                                echo "<div class="dropdown-menu dropdown-menu-right category-menu">";
+                                echo "<div class='dropdown-menu dropdown-menu-right category-menu'>";
                                     
-                                    echo "<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">";
-                                        echo "<i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important";
+                                    echo "<a class='note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger' href='javascript:void(0);'>";
+                                        echo "<i class='mdi mdi-checkbox-blank-circle-outline mr-1'></i> Important";
                                     echo "</a>";
                                 echo "</div>";
                             echo "</div>";
