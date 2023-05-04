@@ -1,4 +1,4 @@
 import "./pubsub.js"
-import "./load.js"
 import "./calendar.js"
 import "./modal.js"
+import "./load.js" // This file must load last

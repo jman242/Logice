@@ -11,7 +11,7 @@ function calcDayOfMonth(monthDay, weekDay){
     return monthDay;
 }
 
-function getDaysInMonth(month,year) {
+export function getDaysInMonth(month,year) {
   //0 is last day of month
   return new Date(year, month, 0).getDate();
   };
@@ -27,23 +27,63 @@ export function calculateWeekDays(){
     //console.log(currentWeekDate);
     //console.log(currYear);
     if(currentWeekDate.getTimezoneOffset() > 300){ // || currentWeekDate.getTimezoneOffset() < 300)
-        //console.log("tast")
-        currentWeekDate.setUTCHours(10);
-        //console.log(currentWeekDate);
-        currMonth = currentWeekDate.getMonth() + 1; //offsetting month to correspond to normal calendar numbering Jan = 1, Feb = 2, etc.
-        currDay = currentWeekDate.getDate(); // gets day of the month (1-31)
-        currDayOfWeek = currentWeekDate.getDay(); //gets day of the week as number (0-6)
-        currYear = currentWeekDate.getFullYear();
+         //console.log("tast")
+         currentWeekDate.setUTCHours(12);
+         console.log(currentWeekDate);
+         currMonth = currentWeekDate.getMonth() + 1; //offsetting month to correspond to normal calendar numbering Jan = 1, Feb = 2, etc.
+         currDay = currentWeekDate.getDate(); // gets day of the month (1-31)
+         currDayOfWeek = currentWeekDate.getDay(); //gets day of the week as number (0-6)
+         currYear = currentWeekDate.getFullYear(); // returns year in YYYY form
     }
     //console.log(currDay);
     //console.log(currDayOfWeek);
     //console.log(currMonth);
     var currentWeek = [];
-    var startOffset = 0;
-    var endOffset = 0;
+    var offset = 0;
+    //var day = currDay;
+    //console.log("CURRENT MONTH: ", currMonth);
+    //console.log("CURRENT DAY: ", calcDayOfMonth(currDay, currDayOfWeek));
+    if((currDay + 7 > getDaysInMonth(currMonth, currYear)) || (currDay - 7 < 1)){ // if week is at the beginning or at the end of a month //currDay - 7 < 1 ? offset = -1 : offset = 1;
+        var lastMonthDay = 0;
+        //console.log();
+        if(calcDayOfMonth(currDay, currDayOfWeek) == 0){
+            var currMonthVar = currMonth - 1;
+            lastMonthDay = getDaysInMonth(currMonthVar, currYear); 
+            //console.log("WE ARE HERE");
+        }else if(calcDayOfMonth(currDay, currDayOfWeek) > 0){
+            //console.log();
+            //console.log("WE ARE HERE");
+            lastMonthDay = currDay;
+        }else if(calcDayOfMonth(currDay, currDayOfWeek) < 0){
+            //console.log("WE ARE HERE", currDay);
+            //lastMonthDay = currDay;
+        }
+
+        if(currDay == 7 && currDayOfWeek == 6){ //case when curr day is 7 and is still within the beginning week of month
+            if(lastMonthDay > 0){
+                offset = 0;
+                //console.log("MIDDLE OF MONTH!!!");
+            }
+            else{
+                offset = -1;
+                console.log("BEGINNING OF MONTH!!!");
+            }
+        }else if(currDay < 7 && lastMonthDay > currDay){ 
+            offset = -1;
+            console.log("BEGINNING OF MONTH!!!");
+
+        }else if(calcDayOfMonth(currDay, currDayOfWeek) > 24 && currDayOfWeek < 6){
+            offset = 1;
+            //console.log("END OF MONTH!!!");
+
+        } else if(lastMonthDay == 0){
+            offset = -1;
+        }
+    }
+
     //console.log(currDay); // 11?
     if(getDaysInMonth(currMonth, currYear) == 30){ // case of end of month with 30 days
-        //console.log(currDay); // 11?
+        console.log(currDay); // 11?
         //console.log("test1");
         if(currDayOfWeek == 0){
             for(var i = 0; i < 7; i++){
@@ -60,15 +100,10 @@ export function calculateWeekDays(){
                     currentWeek[i] = currDay;
                 }
             }
-            if(currentWeek[0]> currentWeek[6]){
-                startOffset = 1;
-            }else{
-                endOffset = 0;
-            }
         }
         else{
             if(currDay < currDayOfWeek){
-                console.log("test1");
+                //console.log("test1");
                 let prevMonth = currentWeekDate.getMonth(); // getting month previous
                 let lastMonthDate = getDaysInMonth(prevMonth, currentWeekDate.getFullYear());
                 //console.log(lastMonthDate);
@@ -88,11 +123,6 @@ export function calculateWeekDays(){
                     currentWeek[i] = currDay;
                     currDay++;
                 }
-                }
-                if(currentWeek[0]> currentWeek[6]){
-                    startOffset = 1;
-                }else{
-                    endOffset = 0;
                 }
             }
             else{
@@ -115,20 +145,14 @@ export function calculateWeekDays(){
                     currDay++;
                 }
             }
-            if(currentWeek[0]> currentWeek[6]){
-                startOffset = 1;
-            }else{
-                endOffset = 0;
-            }
         }   
         }
-            //endOffset = 1;
     }
     else if(getDaysInMonth(currMonth, currYear) == 31){ // case of beginning of month with 31 days in prev month
         //console.log(currDay); // 11?
         //console.log(currDayOfWeek)
         if(currDayOfWeek == 0){
-            //console.log("test");
+            console.log("test");
                     for(var i = 0; i < 7; i++){
                         //console.log("test");
                         if(currDay <= 31){
@@ -148,11 +172,6 @@ export function calculateWeekDays(){
                             currDay++;
                         }
                     }
-                    if(currentWeek[0]> currentWeek[6]){
-                        startOffset = 1;
-                    }else{
-                        endOffset = 0;
-                    }
                 }
                 else{
                     //console.log(getDaysInMonth(currMonth, currYear));
@@ -167,6 +186,7 @@ export function calculateWeekDays(){
                     //console.log("test");
                     if(currDay < 7) // case of the beginning of next month
                     {
+                        //console.log("test1");
                         currDay = calcDayOfMonth(currDay, currDayOfWeek);
                         if(currDay < 0){
                             currDay = currDay + lastMonthDate; 
@@ -191,25 +211,23 @@ export function calculateWeekDays(){
                                 }
                             }
                         }
-                        if(currentWeek[0]> currentWeek[6]){
-                            startOffset = 1;
-                        }else{
-                            endOffset = 0;
-                        }
                         //endOffset = 1;
                     }
-                    else{ // case of previous month
+                    else{ // case of previous month //currday = 12
                         currDay = calcDayOfMonth(currDay, currDayOfWeek);
                         //console.log(currDay);
+                        //console.log("test");
                         for(var i = 0; i < 7; i++){
                             if(currDay <= 31){
                                 //console.log("test1");
                                 if(currDay == 1){
+                                    console.log("TEST")
                                     currentWeek[i] = currDay;
                                     currDay++;
                                 }else{
                                     //console.log("TEST")
                                     currentWeek[i] = currDay;
+                                    //console.log(currentWeek[i]);
                                     currDay++;
                                 } 
                             }
@@ -225,11 +243,6 @@ export function calculateWeekDays(){
                                 currDay++;
                                } 
                             }
-                        }
-                        if(currentWeek[0]> currentWeek[6]){
-                            startOffset = 1;
-                        }else{
-                            endOffset = 0;
                         }
                     }
                 }
@@ -290,17 +303,20 @@ export function calculateWeekDays(){
                 }
                 }            
     }
-    if(currentWeek[0]> currentWeek[6]){
-        startOffset = 1;
-    }else{
-        endOffset = 0;
-    }
-        return {currentWeek, startOffset, endOffset};
+        return {currentWeek, offset};
     }
 
+function findUTCHours(currentDate){
+    return 2;
+}
+
 export function findCurrentMonth(){
-    var currentWeekDate = new Date(window.selectedDate);
-    currentWeekDate.setUTCHours(currentWeekDate.getUTCHours() + 5);
+    var today = new Date();
+    var currentWeekDate = new Date(`${window.selectedDate} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`);
+    console.log("TEST IS HERE",currentWeekDate);
+    currentWeekDate.setUTCHours(10);
+    //console.log(currentWeekDate.getUTCHours())
+    //currentWeekDate.setUTCHours(10);
     //console.log(currentWeekDate);
     var currMonth = currentWeekDate.getMonth(); //gets month number (0-11)
     //console.log(currMonth);
