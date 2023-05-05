@@ -25,7 +25,7 @@ $rs = pg_query($dbconn, $sql);
 if(!$rs){
   echo pg_last_error($dbconn);
 } else {
-  echo "Inserted successfully";
+  header("Location: index.php";
 }
 }
 ?>
