@@ -62,10 +62,18 @@
         font-size: 14px;
         margin-top: 10px;
       }
+
+      /* Logo's properties */
+      img {
+        max-width:400px;
+        height:auto;
+      }
+
     </style>
   </head>
   <body>
     <div class="login-container">
+      <img src="../fullLogo.png">
       <h2 class="login-heading">User Login</h2>
       <form method="post" action="login.php">
         <input type="text" name="username" class="login-input" placeholder="Username or email" required>
@@ -73,7 +81,7 @@
         <button type="submit" class="login-button">Press to start!</button>
         <p class="login-error">Incorrect username or password.</p>
       </form>
+      <a text-align="center" href="signup.html">Register</a>
     </div>
   </body>
 </html>
-
