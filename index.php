@@ -17,7 +17,7 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
 <html lang ="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Logice</title>
+    <title>Logice - Calendar</title>
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/e9fdb44b0e.js" crossorigin="anonymous"></script>
