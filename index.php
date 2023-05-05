@@ -11,7 +11,7 @@ $_SESSION['last_activity'] = time(); // update last activity time stamp
 
 if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
 
- ?>
+?> 
 
 <!DOCTYPE html>
 <html lang ="en" dir="ltr">
@@ -141,13 +141,11 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
   </body>
 </html>
 <?php
-
 }else{
 
-     header("Location: ../login/index.php");
+      header("Location: ../login/index.php");
 
-     exit();
+      exit();
+ }
 
-}
-
- ?>
+?>

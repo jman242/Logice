@@ -358,7 +358,7 @@ $(function() {
     // Button add
     $("#btn-n-add").on('click', function(event) {
         event.preventDefault();
-        /* Act on the event - This is nulled out as event adding will be doe via db. */
+    /* Act on the event - This is nulled out as event adding will be done via db. */
       /*  var today = new Date();
       var dd = String(today.getDate()).padStart(2, '0');
       var mm = String(today.getMonth()); //January is 0!
