@@ -111,8 +111,8 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
           <input type="time" id="starts_at" name="f_time" required>
           <label for="time">&nbsp; Ends at: </label>
           <input type="time" id="ends_at" name="t_time" required><br><br>
-          <label for="category">&nbsp; Category: </label>
-          <select name="category" id="category">
+          <label for="categ">&nbsp; Category: </label>
+          <select name="categ" id="categ">
             <option value="Meeting">Meeting</option>
             <option value="Play">Play</option>
             <option value="Shopping">Shopping</option>
