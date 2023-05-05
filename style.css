@@ -35,6 +35,15 @@ div{
   padding: 10px; 
   background-color: rgb(5, 5, 77);
 }
+img.headerImage{
+  padding: 10px 0px 0px 0px; 
+  margin: 0px 0px 5px 0px;
+}
+h1.headerh1{
+  position: relative;
+  display: inline-block;
+  bottom: 10px;
+}
 
 /* -END- Top Navigation bar w/ symbol*/
 
