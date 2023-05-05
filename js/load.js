@@ -1,7 +1,7 @@
 import { calculateWeekDays } from "./utils.js"; // imported function for code consolidation
 import { findCurrentMonth } from "./utils.js"; // imported function for code consolidation
 document.addEventListener("DOMContentLoaded", async () => { 
-        var response = await fetch("mock.json"); // mock api call--> var response = await fetch("mock.json");
+        var response = await fetch("/api/get-events"); // mock api call--> var response = await fetch("mock.json");
 
         var {currentWeek, offset} = calculateWeekDays(); //grabbing current week days of the month and storing them into an array
         var currentMonth = findCurrentMonth();
