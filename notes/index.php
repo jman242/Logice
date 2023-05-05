@@ -109,14 +109,14 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
                                     <div class="col-md-12 mb-3">
                                         <div class="note-title">
                                             <label>Note Title</label>
-                                            <input type="text" id="note-has-title" name="title" class="form-control" minlength="25" placeholder="Title" />
+                                            <input type="text" id="note-has-title" name="title" class="form-control" maxlength="50" placeholder="Title" />
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="note-description">
                                             <label>Note Description</label>
-                                            <textarea id="note-has-description" name="description" class="form-control" minlength="60" placeholder="Description" rows="3"></textarea>
+                                            <textarea id="note-has-description" name="description" class="form-control" placeholder="Description" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
