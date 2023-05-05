@@ -19,7 +19,7 @@ $rs = pg_query($dbconn, $sql);
 if(!$rs){
   echo(pg_last_error($dbconn));
 } else {
-  echo($rs); 
+  echo(json_encode($rs));
 }
 }
 else{
