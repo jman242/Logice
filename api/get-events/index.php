@@ -12,7 +12,7 @@ if (!$dbconn) {
 
 
 //Creates sql strin and inserts into db using pg_query
-$sql = "SELECT * FROM event.public WHERE userid=".$_SESSION['userid']."";
+$sql = "SELECT * FROM event WHERE userid=".$_SESSION['userid']."";
 $rs = pg_query($dbconn, $sql);
 
 //troubleshooting
