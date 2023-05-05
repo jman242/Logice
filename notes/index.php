@@ -100,7 +100,7 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-				<form action="index.php" id="addnotesmodalTitle" method="GET">
+		<form action="addnote.php" id="addnotesmodalTitle" method="GET">
                 <div class="modal-body">
                     <div class="notes-box">
                         <div class="notes-content">
@@ -128,23 +128,11 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
                     <button class="btn btn-danger" data-dismiss="modal">Discard</button>
                     <input type="submit" name="add" value="Add" />
                 </div>
-				</form>
+		</form>
             </div>
         </div>
     </div>
 </div>
-<?php
-if(isset($_GET['add'])) {
-	$title=$_GET['title'];
-	$desc=$_GET['description'];
-	
-	$sql="INSERT INTO note (uid, Title, description) VALUES (".$_SESSION['userid'].", '$title', '$desc')";
-	$rs=pg_query($dbconn, $sql);
-	if(!$rs){
-		echo pg_last_error($dbconn);
-	}
-}
-?>
 <style type="text/css">
 
 body{
