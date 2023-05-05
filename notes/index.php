@@ -59,7 +59,7 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
 				echo "<div class='col-md-4 single-note-item all-category note-important'>";
 					echo "<div class='card card-body'>";
 						echo "<span class='side-stick'></span>";
-						echo "<h5 class='note-title text-truncate w-75 mb-0' data-noteheading='Go for lunch'>".$out['Title']."<i class='point fa fa-circle ml-1 font-10'></i></h5>";
+						echo "<h5 class='note-title text-truncate w-75 mb-0' data-noteheading='Go for lunch'>".$out['name']."<i class='point fa fa-circle ml-1 font-10'></i></h5>";
                    // <p class="note-date font-12 text-muted">19 November 2021</p>
 						echo "<div class='note-content'>".$out['description'];
 						echo "</div>";
@@ -100,7 +100,7 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-				<form action="index.php" id="addnotesmodalTitle" method="POST">
+				<form action="index.php" id="addnotesmodalTitle" method="GET">
                 <div class="modal-body">
                     <div class="notes-box">
                         <div class="notes-content">
@@ -126,7 +126,7 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
                 <div class="modal-footer">
                     <button id="btn-n-save" class="float-left btn btn-success" style="display: none;">Save</button>
                     <button class="btn btn-danger" data-dismiss="modal">Discard</button>
-                    <input type="submit" name="add" id="btn-n-add" class="btn btn-info" disabled="disabled" value="Add" />
+                    <input type="submit" name="add" value="Add" />
                 </div>
 				</form>
             </div>
@@ -134,9 +134,9 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
     </div>
 </div>
 <?php
-if(isset($_POST['add'])) {
-	$title=$_POST['title'];
-	$desc=$_POST['description'];
+if(isset($_GET['add'])) {
+	$title=$_GET['title'];
+	$desc=$_GET['description'];
 	
 	$sql="INSERT INTO note (uid, Title, description) VALUES (".$_SESSION['userid'].", '$title', '$desc')";
 	$rs=pg_query($dbconn, $sql);
