@@ -12,7 +12,7 @@ function calcDayOfMonth(monthDay, weekDay){
 }
 
 export function transformEvent(event){
-    events.array.forEach(element => {
+    event.forEach(element => {
         //Accepting events from
         var title = element.event;
         var starts_at = element.event;
