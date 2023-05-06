@@ -1,5 +1,6 @@
 import { calculateWeekDays } from "./utils.js"; // imported function for code consolidation
 import { findCurrentMonth } from "./utils.js"; // imported function for code consolidation
+import { transformEvent } from "./utils.js";
 document.addEventListener("DOMContentLoaded", async () => { 
         var response = await fetch("/api/get-events"); // mock api call--> var response = await fetch("mock.json");
 
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             dateRef:{
                 month: currentMonth, week: currentWeek, offset: offset
             },
-            events: data.events
+            events: data.events //call function transformEvent(data.events) -> returns structure simliar to mock.json same as calendar.js
     });
     
     window.bus.publish("event:loaded", {

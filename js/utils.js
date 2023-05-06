@@ -11,6 +11,17 @@ function calcDayOfMonth(monthDay, weekDay){
     return monthDay;
 }
 
+export function transformEvent(event){
+    events.array.forEach(element => {
+        //Accepting events from
+        var title = element.event;
+        var starts_at = element.event;
+        var ends_at = element.event;
+        var categ = element.event;
+        var description = element.event;
+    });
+}
+
 export function getDaysInMonth(month,year) {
   //0 is last day of month
   return new Date(year, month, 0).getDate();
