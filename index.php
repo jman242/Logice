@@ -10,7 +10,15 @@ if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 9
 $_SESSION['last_activity'] = time(); // update last activity time stamp
 
 if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
+$dbconn = pg_connect("host=logice.cw3uk8qntram.us-east-2.rds.amazonaws.com port=5432 dbname=postgres user=postgres password=Logice1!");
+$sql = "SELECT * FROM EVENT WHERE userid = ".$_SESSION['userid'];
+$rs = pg_query($sql);
 
+$event = array();
+while($row = pg_fetch_assoc($rs)) {
+$event[] = $row;
+}
+$event = json_encode($event);
 ?> 
 
 <!DOCTYPE html>
@@ -23,6 +31,7 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
     <script src="https://kit.fontawesome.com/e9fdb44b0e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script> var event = <?php echo $event; ?>; console.log(event);</script>
 </head>
 <nav class="topline">
   <div class="container">
