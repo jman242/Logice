@@ -19,7 +19,8 @@ $rs = pg_query($sql);
 if(!$rs){
   echo(pg_last_error($dbconn));
 } else {
-  echo(json_encode($rs));
+  $events = json_encode(pg_fetch_all($rs));
+  echo "here are events".$events;
 }
 }
 else{
