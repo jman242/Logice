@@ -20,6 +20,8 @@ if(!$rs){
   echo(pg_last_error($dbconn));
 } else {
   echo(json_encode($rs));
+  echo json_last_error_msg(); // Print out the error if any
+  die(); // halt the script
 }
 }
 else{

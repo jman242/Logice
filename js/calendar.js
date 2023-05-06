@@ -2,6 +2,7 @@ import { calculateEventHeight } from "./utils.js"; // imported function for code
 import { calculateWeekDays } from "./utils.js";
 import { findCurrentMonth } from "./utils.js"; // imported function for code consolidation
 import { getDaysInMonth } from "./utils.js";
+import { transformEvent } from "./utils.js";
 
 const daysTag = document.querySelector(".days");
 const currentDate = document.querySelector(".current-date"); //month view date (Month and Year)
@@ -58,8 +59,8 @@ const renderCalendar = (events) => {
             }
             e.target.classList.add("active");
             window.selectedDate = e.target.getAttribute("data-date-key");
+            
             var response = await fetch("api/get-events"); // mock api call--> var response = await fetch("mock.json");
-
             var {currentWeek, offset} = calculateWeekDays(); //grabbing current week days of the month and storing them into an array
             var currentMonth = findCurrentMonth(); // Error When this line and below is implemented.
             
@@ -71,7 +72,7 @@ const renderCalendar = (events) => {
                 dateRef:{
                     month: currentMonth, week: currentWeek, offset: offset
                 },
-                events: data.events //call function transform(data.events) -> returns structure simliar to mock.json same as load.js
+                events: data.events //call function transformEvent(data.events) -> returns structure simliar to mock.json same as load.js
         });
         })
     })
