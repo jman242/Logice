@@ -11,11 +11,11 @@ if (!$dbconn) {
 }
 
 //$sql = pg_query("SELECT * FROM event WHERE userid = ".$_SESSION['userid']);
-$rs = pg_query("SELECT * FROM event WHERE userid = ".$_SESSION['userid']);
-//$rs = pg_query($dbconn, $sql);
+$sql = "SELECT * FROM event WHERE userid=".$_SESSION['userid']."";
+$rs = pg_query($dbconn, $sql);
 
 
-//$sql = "SELECT * FROM event WHERE userid=".$_SESSION['userid']."";
+// //$sql = "SELECT * FROM event WHERE userid=".$_SESSION['userid']."";
 // $array = array();
 // while($row = pg_fetch_row($rs)){
 //   $array[] = $row;
