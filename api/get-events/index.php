@@ -10,7 +10,7 @@ if (!$dbconn) {
         die('Could not connect: ');
 }
 
-$sql = "SELECT * FROM event WHERE userid=".$_SESSION['userid'].""
+$sql = pg_query("SELECT * FROM event WHERE userid = ".$_SESSION['userid']);
 $rs = pg_query($dbconn, $sql);
 
 
