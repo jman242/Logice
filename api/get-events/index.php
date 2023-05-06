@@ -10,22 +10,16 @@ if (!$dbconn) {
         die('Could not connect: ');
 }
 
-$sql = "SELECT * FROM event WHERE userid=".$_SESSION['userid'].""
-$rs = pg_query($dbconn, $sql);
 
-
-//$sql = "SELECT * FROM event WHERE userid=".$_SESSION['userid']."";
-$array = array();
-while($row = pg_fetch_row($rs)){
-  $array[] = $row;
-}
-
+//Creates sql strin and inserts into db using pg_query
+$sql = "SELECT * FROM event WHERE userid = ".$_SESSION[('userid']);//)]";
+$rs = pg_query($sql);
 
 //troubleshooting
 if(!$rs){
   echo(pg_last_error($dbconn));
 } else {
-  echo(json_encode($array));
+  echo(json_encode($rs));
 }
 }
 else{
