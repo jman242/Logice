@@ -10,22 +10,23 @@ if (!$dbconn) {
         die('Could not connect: ');
 }
 
-$sql = pg_query("SELECT * FROM event WHERE userid = ".$_SESSION['userid']);
-$rs = pg_query($dbconn, $sql);
+//$sql = pg_query("SELECT * FROM event WHERE userid = ".$_SESSION['userid']);
+$rs = pg_query("SELECT * FROM event WHERE userid = ".$_SESSION['userid']);
+//$rs = pg_query($dbconn, $sql);
 
 
 //$sql = "SELECT * FROM event WHERE userid=".$_SESSION['userid']."";
-$array = array();
-while($row = pg_fetch_row($rs)){
-  $array[] = $row;
-}
+// $array = array();
+// while($row = pg_fetch_row($rs)){
+//   $array[] = $row;
+// }
 
 
 //troubleshooting
 if(!$rs){
   echo(pg_last_error($dbconn));
 } else {
-  echo(json_encode($array));
+  echo(json_encode($rs));
 }
 }
 else{
