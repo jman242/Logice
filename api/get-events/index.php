@@ -1,6 +1,6 @@
 <?php
 session_start();
-ini_set('display_errors', 1); error_reporting(-1);
+//ini_set('display_errors', 1); error_reporting(-1);
 //Checks session details from login
 if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
 //establishes connection
@@ -20,7 +20,7 @@ if(!$rs){
   echo(pg_last_error($dbconn));
 } else {
   $events = json_encode(pg_fetch_all($rs));
-  echo "here are events".$events;
+  echo $events;
 }
 }
 else{
