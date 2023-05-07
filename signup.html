@@ -2,33 +2,89 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Logice Sign-Up</title>
+    <style>
+      /* Styles for the login form container */
+      .signup-container {
+        width: 400px;
+        margin: auto;
+        /*
+        margin-left: auto;
+        margin-right: auto;
+        */
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Styles for the login form heading */
+      .signup-heading {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      /* Styles for the login form inputs */
+      .signup-input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+      }
+
+      /* Styles for the login form submit button */
+      .signup-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(2, 4, 110, 0.571);
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      /* Styles for the login form submit button on hover */
+      .signup-button:hover {
+        background-color: #0069d9;
+      }
+
+    </style>
 </head>
 
 <body>
-<fieldset>
-<legend>Sign-Up Form</legend>
-<form name="frmContact" method="post" action="signup.php">
-<p>
-<label for="First Name">First Name </label>
-<input type="text" name="f_name" id="f_name">
-</p>
-<p>
-<label for="Last Name">Last Name </label>
-<input type="text" name="l_name" id="l_name">
-</p>
-<p>
-<label for="email">Email</label>
-<input type="text" name="t_email" id="t_email">
-</p>
-<p>
-<label for="password">Password</label>
-<input type="text" name="t_password" id="t_password">
-</p>
-<p>&nbsp;</p>
-<p>
-<input type="submit" name="Submit" id="Submit" value="Submit">
-</p>
-</form>
-</fieldset>
+    <div class="signup-container">
+      <h2 class="signup-heading">Registration</h2>
+		<fieldset>
+		<form name="frmContact" method="post" action="signup.php">
+			<p>
+				<label for="First Name">First Name </label>
+				<input type="text" name="f_name" class="signup-input" id="f_name">
+			</p>
+			<p>
+				<label for="Last Name">Last Name </label>
+				<input type="text" name="l_name" class="signup-input" id="l_name">
+			</p>
+			<p>
+				<label for="email">Email</label>
+				<input type="text" name="t_email" class="signup-input" id="t_email">
+			</p>
+			<p>
+				<label for="password">Password</label>
+				<input type="text" name="t_password" class="signup-input" id="t_password">
+			</p>
+			<p>&nbsp;</p>
+			<p>
+				<input type="submit" name="Submit" class="signup-button" id="Submit" value="Submit">
+			</p>
+		</form>
+		</fieldset>
+	</div>
 </body>
 </html>
