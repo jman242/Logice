@@ -12,14 +12,30 @@ function calcDayOfMonth(monthDay, weekDay){
 }
 
 export function transformEvent(event){
+    var eventsArray = [];
+
     event.forEach(element => {
-        //Accepting events from
-        var title = element.event;
-        var starts_at = element.event;
-        var ends_at = element.event;
-        var categ = element.event;
-        var description = element.event;
+        //Accepting events from api/get-events
+        var title = element.event.title;
+
+        //date, start, and fin must be captured and reformatted to match modal
+        var date = element.event.eventdate
+        var start = element.event.start;
+        var fin = element.event.fin;
+        var categ = element.event.category; 
+        var description = element.event.descrip;
+        var eventid = element.event.eventid;
+        //reformatting date, start, and fin
+        var starts_at = `${date} ${start}`;
+        var ends_at = `${date} ${fin}`;
+        
+
+        let eventObj = {
+            id: eventid, title: title, date: date, starts_at: starts_at, ends_at: ends_at, category: categ, description: description
+        };
+        eventsArray.push(eventObj);
     });
+    return eventsArray;
 }
 
 export function getDaysInMonth(month,year) {

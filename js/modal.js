@@ -7,6 +7,8 @@ var date = document.getElementById("event_date");
 var starts_at = document.getElementById("event_starts_at");
 var ends_at = document.getElementById("event_ends_at");
 var description = document.getElementById("event_description");
+var event_id = document.getElementById("event_id");
+var event_category = document.getElementById("event_category");
 
 window.bus.subscribe("event:loaded", (payload) => {
     //console.log("TEST");
@@ -14,12 +16,14 @@ window.bus.subscribe("event:loaded", (payload) => {
     openEvent.forEach(event =>{
             var data = JSON.parse(event.getAttribute("data-json"))
             event.addEventListener("click", () => {
-                var startDate = new Date(data.starts_at);
+                var startDate = new Date(data.starts);
+                event_id.innerHTML = data.eventid;
                 title.innerHTML = data.title;
-                description.textContent = data.description;
+                description.textContent = data.descrip;
+                event_category.textContent = data.category;
                 date.textContent = startDate.toLocaleString().split(',')[0];
                 starts_at.textContent = `${startDate.getHours()}:${String(startDate.getMinutes()).padStart(2,"0")}`
-                var endDate = new Date(data.ends_at);
+                var endDate = new Date(data.fin);
                 ends_at.textContent = `${endDate.getHours()}:${endDate.getMinutes()}`;
                 modal2.setAttribute("aria-hidden", false);
             })
