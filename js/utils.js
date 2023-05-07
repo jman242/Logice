@@ -16,7 +16,7 @@ export function transformEvent(event){
 
     event.forEach(element => {
         //Accepting events from api/get-events
-        var title = element.event.title;
+        var title = element.title;
 
         //date, start, and fin must be captured and reformatted to match modal
         var date = element.event.eventdate
