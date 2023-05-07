@@ -17,14 +17,13 @@ export function transformEvent(event){
     event.forEach(element => {
         //Accepting events from api/get-events
         var title = element.title;
-
         //date, start, and fin must be captured and reformatted to match modal
-        var date = element.event.eventdate
-        var start = element.event.start;
-        var fin = element.event.fin;
-        var categ = element.event.category; 
-        var description = element.event.descrip;
-        var eventid = element.event.eventid;
+        var date = element.eventdate
+        var start = element.start;
+        var fin = element.fin;
+        var categ = element.category; 
+        var description = element.descrip;
+        var eventid = element.eventid;
         //reformatting date, start, and fin
         var starts_at = `${date} ${start}`;
         var ends_at = `${date} ${fin}`;
