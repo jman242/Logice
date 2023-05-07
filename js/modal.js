@@ -16,19 +16,18 @@ window.bus.subscribe("event:loaded", (payload) => {
     openEvent.forEach(event =>{
             var data = JSON.parse(event.getAttribute("data-json"))
             event.addEventListener("click", () => {
-                var startDate = new Date(data.date);
-                console.log(data.date);
+                var startDate = new Date(data.starts_at);
                 console.log("START DATE: ", startDate);
                 console.log("TEST! event_id issue");
-                event_id.innerHTML = event.eventid;
+                event_id.innerHTML = data.id;
                 console.log("TEST! title issue");
-                title.innerHTML = event.title;
+                title.innerHTML = data.title;
                 console.log("TEST! description issue");
-                description.textContent = event.descrip;
-                event_category.textContent = event.category;
+                description.textContent = data.description;
+                event_category.textContent = data.category;
                 date.textContent = startDate.toLocaleString().split(',')[0];
                 starts_at.textContent = `${startDate.getHours()}:${String(startDate.getMinutes()).padStart(2,"0")}`
-                var endDate = new Date(event.eventdate);
+                var endDate = new Date(data.ends_at);
                 ends_at.textContent = `${endDate.getHours()}:${endDate.getMinutes()}`;
                 console.log("Why are we here?");
                 modal2.setAttribute("aria-hidden", false);
