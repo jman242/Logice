@@ -72,7 +72,7 @@ const renderCalendar = (events) => {
                 dateRef:{
                     month: currentMonth, week: currentWeek, offset: offset
                 },
-                events: transformEvent(data.event) //call function transformEvent(data.events) -> returns structure simliar to mock.json same as load.js
+                events: transformEvent(data) //call function transformEvent(data.events) -> returns structure simliar to mock.json same as load.js
         });
         })
     })
