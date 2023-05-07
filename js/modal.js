@@ -20,7 +20,7 @@ window.bus.subscribe("event:loaded", (payload) => {
                 var startDate = new Date(data.starts_at);
                 console.log("START DATE: ", startDate);
                 console.log("TEST! event_id issue");
-                event_id.innerHTML = data.id;
+                document.getElementById('event_id').value = data.id;
                 console.log("TEST! title issue");
                 title.innerHTML = data.title;
                 console.log("TEST! description issue");
