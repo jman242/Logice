@@ -28,13 +28,6 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
             </div>
         </div>
     </nav>
-    <body>
-      <div class="sub-menu">
-        <a class="active" href="#overview">Overview</a>
-        <a href="#notes">Notes</a>
-        <a href="search.php">Search Event</a>
-      </div>
-
       <form name= "Search" action="search.php" method="GET">
         <input type="text" name="title" />
         <input type="submit" name="search" value="Search" />
