@@ -139,10 +139,12 @@ $event = json_encode($event);
       <div data-modal id="modal-wrapper2" aria-hidden="true">
         <div id="event_id">
           <h2>&nbsp;Event Details</h2><br>
+          <p>&nbsp; Event ID: <span id="event_id"></span></p>
           <p>&nbsp; Event Title: <span id="event_title"></span></p>
-          <p>&nbsp; Event date: &nbsp; &nbsp;<span id="event_date"></span></p>
+          <p>&nbsp; Event Date: &nbsp; &nbsp;<span id="event_date"></span></p>
           <p>&nbsp; Starts at: <span id="event_starts_at"></span></p>
           <p>&nbsp; Ends at: <span id="event_ends_at"></span></p>
+          <p>&nbsp; Category: <span id="event_category"></span></p>
           <p>&nbsp; Description: <span id="event_description"></span></p>
           <button id="delete-btn">Delete Event</button>
           <button data-close>Close</button> 

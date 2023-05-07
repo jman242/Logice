@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             dateRef:{
                 month: currentMonth, week: currentWeek, offset: offset
             },
-            events: data.events //call function transformEvent(data.events) -> returns structure simliar to mock.json same as calendar.js
+            events: transformEvent(data.events) //call function transformEvent(data.events) -> returns structure simliar to mock.json same as calendar.js
     });
     
     window.bus.publish("event:loaded", {
