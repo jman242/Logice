@@ -18,7 +18,7 @@ $desc = $_POST['description'];
 $cat = $_POST['categ'];
 
 //Creates sql strin and inserts into db using pg_query
-$sql = "INSERT INTO event (userid, title, eventdate, start, fin, categ, descrip) VALUES (".$_SESSION['userid'].", '$title', '$date', '$from', '$to', '$cat', '$desc')";
+$sql = "INSERT INTO event (userid, title, eventdate, start, fin, category, descrip) VALUES ('{$_SESSION['userid']}', '$title', '$date', '$from', '$to', '$cat', '$desc')";
 $rs = pg_query($dbconn, $sql);
 
 //troubleshooting
