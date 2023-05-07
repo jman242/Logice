@@ -16,10 +16,8 @@ $pass = $_POST['t_password'];
 $sql = "INSERT INTO Users (lastname, firstname, email, pass) VALUES ('$lname', '$fname', '$email', '$pass');";
 //pg_query enters sql into database to insert variables
 $rs = pg_query($dbconn, $sql);
-//troubleshooting statement. returns to login.
+//returns to login.
 if($rs) {
-echo 'Recrods inserted';
-
-header("Location: ../login/login.html");
+header("Location: index.php");
 }
 ?>
