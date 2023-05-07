@@ -137,9 +137,9 @@ $event = json_encode($event);
         </form>
       </div>
       <div data-modal id="modal-wrapper2" aria-hidden="true">
-        <div id="event_id">
+	    <form id="View" method="POST" action="delevent.php">
           <h2>&nbsp;Event Details</h2><br>
-          <p>&nbsp; Event ID: <span id="event_id"></span></p>
+          <p>&nbsp; Event ID: <input type="hidden" id="event_id" name="eid"/></p>
           <p>&nbsp; Event Title: <span id="event_title"></span></p>
           <p>&nbsp; Event Date: &nbsp; &nbsp;<span id="event_date"></span></p>
           <p>&nbsp; Starts at: <span id="event_starts_at"></span></p>
@@ -148,8 +148,8 @@ $event = json_encode($event);
           <p>&nbsp; Description: <span id="event_description"></span></p>
           <button id="delete-btn">Delete Event</button>
           <button data-close>Close</button> 
-        </div>
       </div>
+	</form>
       <script src="./js/index.js" defer type="module"></script>
   </body>
 </html>
