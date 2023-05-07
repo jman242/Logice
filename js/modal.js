@@ -16,8 +16,8 @@ window.bus.subscribe("event:loaded", (payload) => {
     openEvent.forEach(event =>{
             var data = JSON.parse(event.getAttribute("data-json"))
             event.addEventListener("click", () => {
-                var startDate = new Date(event.starts_at);
-                console.log(event.starts_at);
+                var startDate = new Date(event.eventdate);
+                console.log(event.eventdate);
                 console.log("START DATE: ", startDate);
                 console.log("TEST! event_id issue");
                 event_id.innerHTML = event.eventid;
@@ -28,7 +28,7 @@ window.bus.subscribe("event:loaded", (payload) => {
                 event_category.textContent = event.category;
                 date.textContent = startDate.toLocaleString().split(',')[0];
                 starts_at.textContent = `${startDate.getHours()}:${String(startDate.getMinutes()).padStart(2,"0")}`
-                var endDate = new Date(data.fin);
+                var endDate = new Date(event.eventdate);
                 ends_at.textContent = `${endDate.getHours()}:${endDate.getMinutes()}`;
                 console.log("Why are we here?");
                 modal2.setAttribute("aria-hidden", false);
