@@ -12,8 +12,8 @@ if (!$dbconn) {
 //stores POST variables into php variables
 $title = $_POST['title'];
 $date = date("m-d-y", strtotime($_POST['date']));
-$from = date("H:m:s",strtotime($_POST['f_time'])); // Capital H = 24 hour time
-$to = date("H:m:s", strtotime($_POST['t_time'])); // Capital H = 24 hour time
+$from = date("H:i:s",strtotime($_POST['f_time'])); // Capital H = 24 hour time
+$to = date("H:i:s", strtotime($_POST['t_time'])); // Capital H = 24 hour time
 $desc = $_POST['description'];
 $cat = $_POST['categ'];
 
@@ -25,7 +25,7 @@ $rs = pg_query($dbconn, $sql);
 if(!$rs){
   echo pg_last_error($dbconn);
 } else {
-  header("Location: index.php";
+  header("Location: index.php");
 }
 }
 ?>
