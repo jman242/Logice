@@ -9,6 +9,7 @@ var ends_at = document.getElementById("event_ends_at");
 var description = document.getElementById("event_description");
 var event_id = document.getElementById("event_id");
 var event_category = document.getElementById("event_category");
+var event_starts_at = "";
 
 window.bus.subscribe("event:loaded", (payload) => {
     //console.log("TEST");
@@ -26,7 +27,7 @@ window.bus.subscribe("event:loaded", (payload) => {
                 description.textContent = data.description;
                 event_category.textContent = data.category;
                 date.textContent = startDate.toLocaleString().split(',')[0];
-                starts_at.textContent = `${startDate.getHours()}:${String(startDate.getMinutes()).padStart(2,"0")}`
+                event_starts_at.textContent = `${startDate.getHours()}:${String(startDate.getMinutes()).padStart(2,"0")}`
                 var endDate = new Date(data.ends_at);
                 ends_at.textContent = `${endDate.getHours()}:${endDate.getMinutes()}`;
                 console.log("Why are we here?");
