@@ -16,7 +16,7 @@ window.bus.subscribe("event:loaded", (payload) => {
     openEvent.forEach(event =>{
             var data = JSON.parse(event.getAttribute("data-json"))
             event.addEventListener("click", () => {
-                console.log("TEST! start date issue");
+                console.log("TEST! start date issue", event);
                 var startDate = new Date(event.start);
                 console.log("TEST! event_id issue");
                 event_id.innerHTML = event.eventid;
