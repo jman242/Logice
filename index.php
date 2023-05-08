@@ -127,7 +127,7 @@ $event = json_encode($event);
             <option value="Meeting">Meeting</option>
             <option value="Play">Play</option>
             <option value="Shopping">Shopping</option>
-            <option value="Meeting">Medical</option>
+            <option value="Medical">Medical</option>
             <option value="Date">Date</option>
           </select>
           <p><label for="description">&nbsp; Description: </label></p>
