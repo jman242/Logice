@@ -79,7 +79,7 @@
         <input type="text" name="username" class="login-input" placeholder="Username or email" required>
         <input type="password" name="password" class="login-input" placeholder="Password" required>
         <button type="submit" class="login-button">Press to start!</button>
-        <p class="login-error">Incorrect username or password.</p>
+        <!--<p class="login-error">Incorrect username or password.</p>-->
       </form>
       <a text-align="center" href="signup.html">Register</a>
     </div>
