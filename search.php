@@ -38,7 +38,7 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
             <option value="Meeting">Meeting</option>
             <option value="Play">Play</option>
             <option value="Shopping">Shopping</option>
-            <option value="Meeting">Medical</option>
+            <option value="Medical">Medical</option>
             <option value="Date">Date</option>
           </select>
           <input type="submit" name="categorysearch" value="Search" />
