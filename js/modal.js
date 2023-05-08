@@ -25,9 +25,9 @@ window.bus.subscribe("event:loaded", (payload) => {
                 description.textContent = data.description;
                 event_category.textContent = data.category;
                 date.textContent = startDate.toLocaleString().split(',')[0];
-                starts_at.textContent = `${startDate.getHours()}:${String(startDate.getMinutes()).padStart(2,"0")}`
+                starts_at.textContent = `${startDate.getHours()}:${String(startDate.getMinutes()).padStart(2,"0")}`;
                 var endDate = new Date(data.ends_at);
-                ends_at.textContent = `${endDate.getHours()}:${endDate.getMinutes()}`;
+                ends_at.textContent = `${endDate.getHours()}:${String(endDate.getMinutes()).padStart(2,"0")}`;
                 console.log("Why are we here?");
                 modal2.setAttribute("aria-hidden", false);
             })
