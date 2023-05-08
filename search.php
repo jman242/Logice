@@ -68,7 +68,7 @@ if(pg_num_rows($rs) > 0){
        echo "<tr style='background-color:red'>";
        break;
      case "Play":
-       echo "<tr style='background-color:blue'>";
+       echo "<tr style='background-color:cyan'>";
        break;
      case "Shopping":
        echo "<tr style='background-color:orange'>";
