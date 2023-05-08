@@ -1,6 +1,4 @@
-<?php ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+<?php
 $dbconn = pg_connect("host=logice.cw3uk8qntram.us-east-2.rds.amazonaws.com port=5432 dbname=postgres user=postgres password=Logice1!");
 session_start();
 
@@ -28,10 +26,23 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
             </div>
         </div>
     </nav>
-      <form name= "Search" action="search.php" method="GET">
+    <div class="wrapper">
+      <form name= "Title Search" action="search.php" method="GET">
+        <h2>Search by Title</h2>
         <input type="text" name="title" />
-        <input type="submit" name="search" value="Search" />
+        <input type="submit" name="titlesearch" value="Search" />
       </form>
+      <form name="Category" action="search.php" method="GET">
+          <h2>Search by Category</h2>
+          <select name="category" id="category">
+            <option value="Meeting">Meeting</option>
+            <option value="Play">Play</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Meeting">Medical</option>
+            <option value="Date">Date</option>
+          </select>
+          <input type="submit" name="categorysearch" value="Search" />
+       </form>
 
       <table align = "center" border = "1" cellpadding = "3" cellspacing = "0" style="width:80%; margin-left:auto; margin-right:auto;">
         <tr>
@@ -43,7 +54,7 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
         <th>Description</th>
         </tr>
 <?php
-if(isset($_GET['search'])) {
+if(isset($_GET['titlesearch'])) {
 $title = $_GET['title'];
 $title = htmlspecialchars($title);
 $rs = pg_query("SELECT * FROM event WHERE title LIKE '%".$title."%' AND userid = ".$_SESSION['userid']." ORDER BY eventdate");
@@ -75,7 +86,39 @@ if(pg_num_rows($rs) > 0){
      echo "<td>".$out['descrip']."</td>";
      echo "</tr>";
    }
-} else {
+ } 
+} elseif(isset($_GET['categorysearch'])) {
+$category = $_GET['category'];
+$rs = pg_query("SELECT * FROM event WHERE category LIKE '$category' AND userid = ".$_SESSION['userid']." ORDER BY eventdate");
+if(pg_num_rows($rs) > 0){
+   while($out = pg_fetch_array($rs)) {
+     switch($out['category']) {
+     case "Meeting":
+       echo "<tr style='background-color:red'>";
+       break;
+     case "Play":
+       echo "<tr style='background-color:cyan'>";
+       break;
+     case "Shopping":
+       echo "<tr style='background-color:orange'>";
+       break;
+     case "Medical":
+       echo "<tr style='background-color:green'>";
+       break;
+     case "Date":
+       echo "<tr style='background-color:purple'>";
+       break;
+     }
+     echo "<td>".$out['category']."</td>";
+     echo "<td>".$out['title']."</td>";
+     echo "<td>".$out['eventdate']."</td>";
+     echo "<td>".$out['start']."</td>";
+     echo "<td>".$out['fin']."</td>";
+     echo "<td>".$out['descrip']."</td>";
+     echo "</tr>";
+   }
+  }
+}else {
    echo "<tr>";
    echo "<td>No results</td>";
    echo "<td></td>";
@@ -84,9 +127,9 @@ if(pg_num_rows($rs) > 0){
    echo "<td></td>";
    echo "</tr>";
    }
-}
 ?>
 </table>
+</div>
 </body>
 </html>
 <?php
