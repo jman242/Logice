@@ -16,6 +16,7 @@
         border: 1px solid #ddd;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
       }
 
       /* Styles for the login form heading */
@@ -81,7 +82,7 @@
         <button type="submit" class="login-button">Press to start!</button>
         <!--<p class="login-error">Incorrect username or password.</p>-->
       </form>
-      <a text-align="center" href="signup.html">Register</a>
+      <a href="signup.html">Register</a>
     </div>
   </body>
 </html>
