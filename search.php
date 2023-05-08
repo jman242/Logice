@@ -43,7 +43,9 @@ if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
           </select>
           <input type="submit" name="categorysearch" value="Search" />
        </form>
-
+      </div>
+      <br></br>
+      <div class="wrapper">
       <table align = "center" border = "1" cellpadding = "3" cellspacing = "0" style="width:80%; margin-left:auto; margin-right:auto;">
         <tr>
         <th>Type</th>
