@@ -24,13 +24,34 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
     <!--  All snippets are MIT license http://bootdey.com/license -->
     <title>Notes dashboard </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel = "stylesheet" href = 'notes_styles.css'>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="notes_script.js"></script>
+  <!--  <link rel = "stylesheet" href = 'notes_styles.css'>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+<!--    <script src="notes_script.js"></script>-->
+<!-- Jonathan Addition -->
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/e9fdb44b0e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<!-- End Jonathan Addition -->
+
 </head>
 <body>
+
+	<nav class="topline" style="margin: auto; width: 100%;">
+  <div class="container">
+      <img class="headerImage" src="../logoHeader.png" alt="Logice - Welcome:" height="53px" width="439px" />
+      <h1 class="headerh1"><?php echo $_SESSION['username']; ?></h1>
+  <div class="topnav">
+      <a href="../index.php">Home</a>
+      <a href="notes">Notes</a>
+      <a href="../search.php">Search Event </a>
+      <!--<a href="#settings">Settings</a>-->
+      <a href="login/logout.php">Logout</a>
+  </div>
+</nav>
+
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="page-content container note-has-grid">
     <ul class="nav nav-pills p-3 bg-white mb-3 rounded-pill align-items-center">
@@ -43,9 +64,6 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
         <li class="nav-item">
             <a href="javascript:void(0)" class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="note-important"> <i class="icon-tag mr-1"></i><span class="d-none d-md-block">Important</span></a>
         </li>
-        <li class="nav-item">
-            <a href="/" class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2"><span class="d-none d-md-block">Back to Overview</span></a>
-        </li>
         <li class="nav-item ml-auto">
             <a href="javascript:void(0)" class="nav-link btn-primary rounded-pill d-flex align-items-center px-3" id="add-notes"> <i class="icon-note m-0"></i><h5><span class="d-none d-md-block font-14"> + </span></h5></a>
         </li>
@@ -55,14 +73,14 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
     <div class="tab-content bg-transparent">
         <div id="note-full-container" class="note-has-grid row">
         <?php if(pg_num_rows($rs) > 0){
-			while($out = pg_fetch_array($rs)) {    
-				echo "<div class='col-md-4 single-note-item all-category note-important'>";
-					echo "<div class='card card-body'>";
-						echo "<span class='side-stick'></span>";
-						echo "<h5 class='note-title text-truncate w-75 mb-0' data-noteheading='Go for lunch'>".$out['name']."<i class='point fa fa-circle ml-1 font-10'></i></h5>";
+                        while($out = pg_fetch_array($rs)) {    
+                                echo "<div class='col-md-4 single-note-item all-category note-important'>";
+                                        echo "<div class='card card-body'>";
+                                                echo "<span class='side-stick'></span>";
+                                                echo "<h5 class='note-title text-truncate w-75 mb-0' data-noteheading='Go for lunch'>".$out['name']."<i class='point fa fa-circle ml-1 font-10'></i></h5>";
                    // <p class="note-date font-12 text-muted">19 November 2021</p>
-						echo "<div class='note-content'>".$out['description'];
-						echo "</div>";
+                                                echo "<div class='note-content'>".$out['description'];
+                                                echo "</div>";
                     echo "<div class='d-flex align-items-center'>";
                         echo "<span class='mr-1'><i class='fa fa-star favourite-note'></i></span>";
                         echo "<span class='mr-1'><i class='fa fa-trash remove-note'></i></span>";
@@ -85,8 +103,8 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
                     echo "</div>";
                 echo "</div>";
             echo "</div>";
-			}
-		}
+                        }
+                }
 ?>
 
 
@@ -100,7 +118,7 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-		<form action="addnote.php" id="addnotesmodalTitle" method="GET">
+                <form action="addnote.php" id="addnotesmodalTitle" method="GET">
                 <div class="modal-body">
                     <div class="notes-box">
                         <div class="notes-content">
@@ -128,12 +146,21 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
                     <button class="btn btn-danger" data-dismiss="modal">Discard</button>
                     <input type="submit" name="add" value="Add" />
                 </div>
-		</form>
+                </form>
             </div>
         </div>
     </div>
 </div>
 <style type="text/css">
+
+/*Jonathan Addition */
+
+
+
+
+/*End Jonathan Addition */
+
+
 
 body{
     background: #edf1f5;
@@ -386,7 +413,7 @@ $(function() {
                                     '</div>' +
                                 '</div>' +
                             '</div></div> ';
-		*/
+                */
         $("#note-full-container").prepend($html);
         $('#addnotesmodal').modal('hide');
 
