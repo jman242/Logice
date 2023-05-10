@@ -1,6 +1,5 @@
 <?php
 session_start();
-//ini_set('display_errors', 1); error_reporting(-1);
 //Checks session details from login
 if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
 //establishes connection
@@ -15,7 +14,7 @@ if (!$dbconn) {
 $sql = "SELECT * FROM event WHERE userid = '{$_SESSION['userid']}'";
 $rs = pg_query($sql);
 
-//troubleshooting
+
 if(!$rs){
   echo(pg_last_error($dbconn));
 } else {

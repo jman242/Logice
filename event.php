@@ -21,7 +21,6 @@ $cat = $_POST['categ'];
 $sql = "INSERT INTO event (userid, title, eventdate, start, fin, category, descrip) VALUES ('{$_SESSION['userid']}', '$title', '$date', '$from', '$to', '$cat', '$desc')";
 $rs = pg_query($dbconn, $sql);
 
-//troubleshooting
 if(!$rs){
   echo pg_last_error($dbconn);
 } else {
