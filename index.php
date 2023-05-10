@@ -74,7 +74,7 @@ $event = json_encode($event);
           <div class="week-icons">
               <span></span>
               <p>Week View</p>
-              <!--<p class = "current-week"></p> -->
+              <!--<p class = "current-week"></p> //removed-->
               <span></span>
           </div>
         </header>

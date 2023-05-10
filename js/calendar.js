@@ -1,8 +1,8 @@
 import { calculateEventHeight } from "./utils.js"; // imported function for code consolidation
-import { calculateWeekDays } from "./utils.js";
+import { calculateWeekDays } from "./utils.js"; // imported function for code consolidation
 import { findCurrentMonth } from "./utils.js"; // imported function for code consolidation
-import { getDaysInMonth } from "./utils.js";
-import { transformEvent } from "./utils.js";
+import { getDaysInMonth } from "./utils.js"; // imported function for code consolidation
+import { transformEvent } from "./utils.js"; // imported function for code consolidation
 
 const daysTag = document.querySelector(".days");
 const currentDate = document.querySelector(".current-date"); //month view date (Month and Year)
@@ -45,7 +45,6 @@ const renderCalendar = (events) => {
         const date = i - lastDayofMonth + 1;
         liTag += `<li data-calendar class="inactive" data-date-key="${currYear}-${String(currMonth + 2).padStart(2,"0")}-${String(date).padStart(2,"0")}">${date}</li>`
     }
-    //var {currentWeek, startOffset, endOffset} = calculateWeekDays();
     currentDate.innerText = `${months[currMonth]} ${currYear}`; //passing current month and year as currentDate text (Month View)
     //currentDate2.innerText = `${months[currMonth - startOffset]} ${currentWeek[0]} - ${months[currMonth + endOffset]} ${currentWeek[6]}, ${currYear}`; //passing current month and year as currentDate2 text (Week View)
     daysTag.innerHTML = liTag;
@@ -80,12 +79,6 @@ const renderCalendar = (events) => {
 renderCalendar();
 
 const renderTimeblocks = (dateRef, events) => {
-    //var currentWeekDate = new Date(window.selectedDate);
-    //var currDayOfWeek = currentWeekDate.getDay();
-    //var thisMonth = currentWeekDate.getMonth(); //current month
-    //var lastMonth = currentWeekDate.getMonth() - 1; // number 0-11 of prev month
-    //var nextMonth = currentWeekDate.getMonth() + 1; // number 0-11 of next month
-    //console.log(currDayOfWeek);
     for(let i = 0; i < 7; i++ ) { // Loop for each day in a week and create timeblocks
         const currentDay = document.querySelector(`[data-day="${i}"] [data-day-label]`);
         const timeGrid = document.querySelector(`[data-day="${i}"] [data-time-block]`);
@@ -96,44 +89,10 @@ const renderTimeblocks = (dateRef, events) => {
         for(let k = 0; k < 24; k++) { // Loop for each hour in a day
             const spanElement = document.createElement("span");
             var targetMonth;
-            // if(getDaysInMonth((months.indexOf(dateRef.month)-1), currYear) == 28){
-            //     var lastMonth = months[months.indexOf(dateRef.month)-1];
-            // } else if(getDaysInMonth((months.indexOf(dateRef.month)-1), currYear) == 30){
-            //     var lastMonth = months[months.indexOf(dateRef.month)-1];
-            // }else if(getDaysInMonth((months.indexOf(dateRef.month)-1), currYear) == 31){
-            //     var lastMonth = months[months.indexOf(dateRef.month)-1];
-            // }
-            //targetMonth = dateRef.week[i] > dateRef.week[6] ? months[months.indexOf(dateRef.month) + dateRef.offset] : dateRef.month; 
              if(dateRef.week[i] > dateRef.week[6]){ // first week of month scenario
-                // console.log("WE ARE HERE",getDaysInMonth(months.indexOf(dateRef.month), currYear));
                  if(dateRef.offset == -1){
-                    //console.log(dateRef.week[i]);
-                    // while((n + i) <= 6){ 
-                    //     if(dateRef.week[i] > dateRef.week[i+n]){
-                    //         console.log(dateRef.week[i+n]);
-                    //         targetMonth = months[months.indexOf(dateRef.month) + dateRef.offset];
-                    //         if(dateRef.week[i+n] == 1){
-                    //             targetMonth = months[months.indexOf(dateRef.month)];
-                    //             console.log("WE ARE HERE@!@!@!@!@!@!@",targetMonth);
-                    //         }
-                    //     }
-                    //     n++;
-                    // }
                     targetMonth = months[months.indexOf(dateRef.month) + dateRef.offset];
-                    
-                    //console.log(lastMonth);
                 }else{
-                    // while((n + i) <= 6){ 
-                    // if(dateRef.week[i+n] < dateRef.week[i]){
-                    //         console.log(n + i);
-                    //         console.log(dateRef.week[i+n]);
-                    //         targetMonth = months[months.indexOf(dateRef.month)];
-                    //         console.log("WE ARE HERE!!!!",targetMonth);
-                    //     }
-                    //     //console.log("WE ARE HERE@!@!@!@!@!@!@",targetMonth);
-                    //     n++;
-                    // }
-                    //console.log("WE ARE HERE@!@!@!@!@!@!@",targetMonth);
                     targetMonth = months[months.indexOf(dateRef.month)];
                  }
             }else{ // middle weeks scenario
@@ -142,24 +101,8 @@ const renderTimeblocks = (dateRef, events) => {
                 }else{
                     targetMonth = dateRef.month;
                 }
-                //targetMonth = dateRef.month;
                 console.log("WORKING?",targetMonth);
             }
-    
-            //var targetMonth = dateRef.week[i] > dateRef.week[6] ? months[months.indexOf(dateRef.month) + dateRef.offset] : dateRef.month; 
-
-            // if(dateRef.week[i] > dateRef.week[6]){
-            //     targetMonth = months[months.indexOf(dateRef.month) + dateRef.offset];
-            // }else if(dateRef.week[i] < dateRef.week[6]){
-            //     //targetMonth = months[months.indexOf(dateRef.month) + dateRef.offset];
-            // }else{
-            //     targetMonth = dateRef.month;
-            // }
-            // console.log(dateRef.week[i]);
-            // console.log(dateRef.week[6]);
-             //console.log("THIS IS A TEST!!!!!", targetMonth);
-            //console.log("THIS IS A TEST!!!!!", dateRef.month); // incorrect output
-            //console.log("THIS IS A TEST!!!!!", dateRef.offset); // 
             spanElement.setAttribute("data-event-target", `${targetMonth}:${dateRef.week[i]}:${k}`);
             spanElement.classList.add("hours");
             if(i == 0){
@@ -185,21 +128,13 @@ const renderTimeblocks = (dateRef, events) => {
             let eventEndDate = new Date(event.ends_at)
             let endHour = eventEndDate.getHours(); 
             let endMinutes = eventEndDate.getMinutes();
-            //console.log();
-            //console.log(day);
-            //if(// event.starts_at month matches dateRef.month){
-                //console.log(month);
-                //console.log(document.getElementById("event"));
-                //event.getElementById("data-id").remove();
     
             function generateEvent(){
                 for(let i = 0; i < 7; i++){ //adding loop to iterate through week array
                     if(day == dateRef.week[i]){
                         var monthRef = month;
                         var eventTargetKey = `${months[monthRef]}:${day}:${hour}`;
-                        //console.log("Month: ", months[monthRef]);
                         const eventTimeBlock = document.querySelector(`[data-event-target="${eventTargetKey}"]`); //attempting to grab Month:Day:Hour from html
-                        //console.log(eventTargetKey);
                         if(eventTimeBlock){
                             //console.log("TEST________________________________________________________");
                             const spanElement = document.createElement("span");
@@ -210,32 +145,15 @@ const renderTimeblocks = (dateRef, events) => {
                             spanElement.style.marginLeft="20px";
                             eventTimeBlock.appendChild(spanElement);
                         }
-                        //console.log(document.querySelectorAll("[data-id]"));
                     }
                 }
             }
-            //generateEvent();
-            //console.log(dateRef.month);
-            //console.log(months[month]);
             if(months[month] == dateRef.month){
-                //console.log("SAME MONTH DAY WEEKS-----------------------------------------------")
                 generateEvent();
             }
-            else if(dateRef.offset != 0){ //beginning week or end week logic (including prev month last days) // Math.max(...dateRef.week) > dateRef.week[6] //months[month-1] == months[months.indexOf(dateRef.month)-1]
-                // if (months[month] == dateRef.month) // 
-                // console.log(months[month]);
-                //console.log("OFFSET BEFORE: ",dateRef.offset);
+            else if(dateRef.offset != 0){ //beginning week or end week logic (including prev month last days)
                 if (months[month] == months[months.indexOf(dateRef.month) + dateRef.offset]) {
-                    // if ((currDay < 7) && (currDayOfWeek == 0)){
-                    //     //console.log("SECOND")
-                    //     console.log("event", event);
-                    //     generateEvent();
-                    // } 
-                    //console.log("OTHER -----------------------------------------------");
                     generateEvent();
-                    // else if(){
-    
-                    // }
                 }
             }
         })

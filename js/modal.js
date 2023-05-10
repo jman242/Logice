@@ -49,7 +49,7 @@ createEvent.addEventListener("click", () =>{
     modal.setAttribute("aria-hidden", false);
 })
 
-// modalSubmit.addEventListener("submit", async (e) =>{ //including error handling
+// modalSubmit.addEventListener("submit", async (e) =>{ //including error handling // Removed because this functionality is not currently being used.
 //     //e.preventDefault(); // prevents refresh of page
 
 //     var title = document.getElementById("title").value;
