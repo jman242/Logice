@@ -1,3 +1,4 @@
+//These variables are being used to grab elements classified by each different id name.
 var modal = document.getElementById("modal-wrapper");
 var modalSubmit = document.getElementById("form_id");
 var modal2 = document.getElementById("modal-wrapper2");
@@ -9,33 +10,27 @@ var ends_at = document.getElementById("event_ends_at");
 var description = document.getElementById("event_description");
 var event_id = document.getElementById("event_id");
 
-window.bus.subscribe("event:loaded", (payload) => {
-    //console.log("TEST");
+window.bus.subscribe("event:loaded", (payload) => { //function to check for user interaction to the week view
     var openEvent = document.querySelectorAll("[data-id]");
-    openEvent.forEach(event =>{
-            var data = JSON.parse(event.getAttribute("data-json"))
-            event.addEventListener("click", () => {
+    openEvent.forEach(event =>{ //For each loop to go through each event displayed on the week view
+            var data = JSON.parse(event.getAttribute("data-json")) //transforming data-json to html so it can be grabbed and displayed
+            event.addEventListener("click", () => { //each time the user clicks on an event in the week view, insert respective event detail into the modal
                 var startDate = new Date(data.starts_at);
-                console.log("START DATE: ", startDate);
-                console.log("TEST! event_id issue");
                 document.getElementById('event_id').value = data.id;
-                console.log("TEST! title issue");
                 title.innerHTML = data.title;
-                console.log("TEST! description issue");
                 description.textContent = data.description;
                 event_category.textContent = data.category;
                 date.textContent = startDate.toLocaleString().split(',')[0];
                 starts_at.textContent = `${startDate.getHours()}:${String(startDate.getMinutes()).padStart(2,"0")}`;
                 var endDate = new Date(data.ends_at);
                 ends_at.textContent = `${endDate.getHours()}:${String(endDate.getMinutes()).padStart(2,"0")}`;
-                console.log("Why are we here?");
                 modal2.setAttribute("aria-hidden", false);
             })
         })
 })
 
-var close = document.querySelectorAll("[data-close]");
-close.forEach(close_button =>{
+var close = document.querySelectorAll("[data-close]"); //grabbing close button id "[data-close]" to apply appropriate close functionality
+close.forEach(close_button =>{ //close button functionality for both modals
     close_button.addEventListener("click", (e) =>{
         e.preventDefault();
         e.target.closest("[data-modal]").setAttribute("aria-hidden", true); 
@@ -43,41 +38,9 @@ close.forEach(close_button =>{
 })
 
 
-createEvent.addEventListener("click", () =>{
+createEvent.addEventListener("click", () =>{ // create event button click functionality to populate the date within the create event modal
     document.getElementById("date").value = window.selectedDate;
-    //console.log(document.getElementById("date").value);
     modal.setAttribute("aria-hidden", false);
 })
 
-// modalSubmit.addEventListener("submit", async (e) =>{ //including error handling // Removed because this functionality is not currently being used.
-//     //e.preventDefault(); // prevents refresh of page
 
-//     var title = document.getElementById("title").value;
-//     var date = document.getElementById("date").value;
-//     var starts_val = document.getElementById("starts_at").value;
-//     var starts_at = new Date(`${date} ${starts_val}`);
-//     var ends_val = document.getElementById("ends_at").value;
-//     var ends_at = `${date} ${ends_val}`;
-//     var description = document.getElementById("description").value;
-//     var categ = document.getElementById("categ").value;
-
-
-//     if(new Date(starts_at) > new Date(ends_at)){ //handling ends_at time greater than starts_at time
-//         document.getElementById("starts_at").value = "";
-//         document.getElementById("ends_at").value = "";
-//         e.target.reportValidity(); //triggers invalid entry response
-//         return;
-//     }
-//     var body = {
-//         title, description, starts_at, date, ends_at, categ
-//     }
-    
-//     console.log(body);
-//     var response = await fetch("logice.cw3uk8qntram.us-east-2.rds.amazonaws.com", {
-//         method: "POST", // Types: GET POST PUT DELETE
-//         body: JSON.stringify(body) //requires json object, stringify converts parameters to json format
-//     }) //api
-//     var data = await response.json();
-//     console.log(data);
-//     modal.setAttribute("aria-hidden", true); // Hiding modal after submitting form
-// })

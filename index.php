@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 900) {
+if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 900) { // checking if last activity is greater than 15 minutes then proceeds to log the user out
   // last request was more than 15 minutes ago
   session_unset(); // unset $_SESSION variable for the run-time
   session_destroy(); // destroy session data in storage
@@ -9,7 +9,7 @@ if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 9
 }
 $_SESSION['last_activity'] = time(); // update last activity time stamp
 
-if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
+if (isset($_SESSION['userid']) && isset($_SESSION['username'])) { // checking if userid and username is not null
 $dbconn = pg_connect("host=logice.cw3uk8qntram.us-east-2.rds.amazonaws.com port=5432 dbname=postgres user=postgres password=Logice1!");
 $sql = "SELECT * FROM EVENT WHERE userid = ".$_SESSION['userid'];
 $rs = pg_query($sql);
@@ -18,7 +18,7 @@ $event = array();
 while($row = pg_fetch_assoc($rs)) {
 $event[] = $row;
 }
-$event = json_encode($event);
+$event = json_encode($event); //returns events in database and transforms them to json
 ?> 
 
 <!DOCTYPE html>
