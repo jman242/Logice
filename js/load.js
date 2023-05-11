@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             events: transformEvent(data) //call function transformEvent(data.events) -> returns structure simliar to mock.json same as calendar.js
     });
     
-    window.bus.publish("event:loaded", {
+    window.bus.publish("event:loaded", {  //publish sends event:loaded
         
     })
 })

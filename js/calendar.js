@@ -24,7 +24,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July",
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 
-const renderCalendar = (events) => {
+const renderCalendar = (events) => { //Renders the main calendar on homepage
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(); //getting first day of month
     let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(); //getting last date of month
     let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(); //getting last day of month
@@ -53,7 +53,6 @@ const renderCalendar = (events) => {
     dateSelectors.forEach(day => {
         day.addEventListener("click", async (e) =>{
             if(document.querySelector(".active") != null){ //case of next or prev month selected
-                //console.log("TEST");
                 document.querySelector(".active").classList.remove("active"); //removes active from day
             }
             e.target.classList.add("active");
@@ -63,7 +62,6 @@ const renderCalendar = (events) => {
             var {currentWeek, offset} = calculateWeekDays(); //grabbing current week days of the month and storing them into an array
             var currentMonth = findCurrentMonth(); // Error When this line and below is implemented.
             
-            console.log(currentWeek);
     
             var data = await response.json();
 
@@ -78,7 +76,7 @@ const renderCalendar = (events) => {
 }
 renderCalendar();
 
-const renderTimeblocks = (dateRef, events) => {
+const renderTimeblocks = (dateRef, events) => { // Render the timeblocks for the weekview
     for(let i = 0; i < 7; i++ ) { // Loop for each day in a week and create timeblocks
         const currentDay = document.querySelector(`[data-day="${i}"] [data-day-label]`);
         const timeGrid = document.querySelector(`[data-day="${i}"] [data-time-block]`);
@@ -90,27 +88,26 @@ const renderTimeblocks = (dateRef, events) => {
             const spanElement = document.createElement("span");
             var targetMonth;
              if(dateRef.week[i] > dateRef.week[6]){ // first week of month scenario
-                 if(dateRef.offset == -1){
-                    targetMonth = months[months.indexOf(dateRef.month) + dateRef.offset];
+                 if(dateRef.offset == -1){ 
+                    targetMonth = months[months.indexOf(dateRef.month) + dateRef.offset]; //apply offset
                 }else{
-                    targetMonth = months[months.indexOf(dateRef.month)];
+                    targetMonth = months[months.indexOf(dateRef.month)]; // not applying offset
                  }
             }else{ // middle weeks scenario
                 if(dateRef.offset == 1){
-                    targetMonth = months[months.indexOf(dateRef.month) + dateRef.offset];
+                    targetMonth = months[months.indexOf(dateRef.month) + dateRef.offset]; //apply offset
                 }else{
-                    targetMonth = dateRef.month;
+                    targetMonth = dateRef.month; // not applying offset
                 }
-                console.log("WORKING?",targetMonth);
             }
-            spanElement.setAttribute("data-event-target", `${targetMonth}:${dateRef.week[i]}:${k}`);
+            spanElement.setAttribute("data-event-target", `${targetMonth}:${dateRef.week[i]}:${k}`); //creating key for each span in weekview time block
             spanElement.classList.add("hours");
             if(i == 0){
-                spanElement.innerHTML = `<span>${k}</span>`;
+                spanElement.innerHTML = `<span>${k}</span>`; //this applys the time of day reference located in the sunday column in weekview (0-23)
                 timeGrid.appendChild(spanElement);
             }
             else{
-                spanElement.innerHTML = `<span></span>`;
+                spanElement.innerHTML = `<span></span>`; //this the same as above it just does not include the hour for the other days of the week
                 timeGrid.appendChild(spanElement);
            }
         }
@@ -118,7 +115,7 @@ const renderTimeblocks = (dateRef, events) => {
 
 
 
-    if(events.length){
+    if(events.length){ //making sure events exists 
         events.forEach((event) =>{ // Attach events into timeblocks
             let eventDate = new Date(event.starts_at); // date api
             let month = eventDate.getMonth();
@@ -129,14 +126,13 @@ const renderTimeblocks = (dateRef, events) => {
             let endHour = eventEndDate.getHours(); 
             let endMinutes = eventEndDate.getMinutes();
     
-            function generateEvent(){
+            function generateEvent(){ //function for displaying events
                 for(let i = 0; i < 7; i++){ //adding loop to iterate through week array
-                    if(day == dateRef.week[i]){
+                    if(day == dateRef.week[i]){ //if event day matches the day of the week day
                         var monthRef = month;
-                        var eventTargetKey = `${months[monthRef]}:${day}:${hour}`;
+                        var eventTargetKey = `${months[monthRef]}:${day}:${hour}`;//creating eventTargetKey for reference when inserting events
                         const eventTimeBlock = document.querySelector(`[data-event-target="${eventTargetKey}"]`); //attempting to grab Month:Day:Hour from html
-                        if(eventTimeBlock){
-                            //console.log("TEST________________________________________________________");
+                        if(eventTimeBlock){ //making sure the key matches the event details. If it does it will inset the event into the correct time slot
                             const spanElement = document.createElement("span");
                             spanElement.innerHTML = `<span data-json='${JSON.stringify(event)}' data-id= "event">${event.title}</span><span>${hour}:${minutes ? minutes : "00"} to ${endHour}:${endMinutes ? endMinutes : "00"}</span>` // ? if else statement ternary
                             spanElement.style.backgroundColor="rgba(2, 4, 110, 0.571)";
@@ -148,7 +144,7 @@ const renderTimeblocks = (dateRef, events) => {
                     }
                 }
             }
-            if(months[month] == dateRef.month){
+            if(months[month] == dateRef.month){ //checking if the event date matches the currentmonth
                 generateEvent();
             }
             else if(dateRef.offset != 0){ //beginning week or end week logic (including prev month last days)
@@ -158,7 +154,7 @@ const renderTimeblocks = (dateRef, events) => {
             }
         })
     }
-    window.bus.publish("event:loaded", {});
+    window.bus.publish("event:loaded", {}); //publish sends event:loaded
 }
 
 prevNextIcon.forEach(icon => { //getting prev and next icons
@@ -183,8 +179,7 @@ curDayIcon.forEach(icon => { //getting current day icon
     })
 });
 
-window.bus.subscribe("event:change", (payload) => {
-    console.log(payload);
+window.bus.subscribe("event:change", (payload) => { //create timeblocks when new date outside of current week is clicked
     renderTimeblocks(payload.dateRef, payload.events); 
 })
 

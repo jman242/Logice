@@ -1,8 +1,8 @@
 <?php
-$dbconn = pg_connect("host=logice.cw3uk8qntram.us-east-2.rds.amazonaws.com port=5432 dbname=postgres user=postgres password=Logice1!");
+$dbconn = pg_connect("host=logice.cw3uk8qntram.us-east-2.rds.amazonaws.com port=5432 dbname=postgres user=postgres password=Logice1!"); //establishing connection
 session_start();
 
-if (isset($_SESSION['userid']) && isset($_SESSION['username'])) {
+if (isset($_SESSION['userid']) && isset($_SESSION['username'])) { // checking to make sure userid and username is not null
 ?>
 <!DOCTYPE html>
 <html lang ="en" dir="ltr">
