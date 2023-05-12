@@ -30,10 +30,10 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!--  <link rel = "stylesheet" href = 'notes_styles.css'>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
-<!--    <script src="notes_script.js"></script>-->
-<!-- Jonathan Addition -->
+<!-- Jonathan's formatting changes (css call order and/or commenting) 5/8 -->
+    <!--    <script src="notes_script.js"></script>-->
+    <!--  <link rel = "stylesheet" href = 'notes_styles.css'>-->
     <link rel="icon" type="image/x-icon" href="../favicon.png">
     <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/e9fdb44b0e.js" crossorigin="anonymous"></script>
@@ -42,7 +42,7 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
 
 </head>
 <body>
-
+<!-- Jonathan's nav bar addition 5/8 -->
 	<nav class="topline" style="margin: auto; width: 100%;">
   <div class="container">
       <img class="headerImage" src="../logoHeader.png" alt="Logice - Welcome:" height="53px" width="439px" />
@@ -52,9 +52,10 @@ $rs = pg_query("SELECT * FROM note where uid = ".$_SESSION['userid']);
       <a href="notes">Notes</a>
       <a href="../search.php">Search Event </a>
       <!--<a href="#settings">Settings</a>-->
-      <a href="login/logout.php">Logout</a>
+      <a href="../login/logout.php">Logout</a>
   </div>
 </nav>
+<!-- end Jonathan's nav bar addition -->
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="page-content container note-has-grid">
